@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://d35f53noudmqs"]
+
+[ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://finish_flag.tscn" id="1_53gld"]
+
+[node name="FirstLevel" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 14.9575, 0, 0, 0)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, 5.01941)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 2.71473, 1.36067, 7.20261)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -1.50958, 2.48998, 7.20261)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -5.95379, 3.38413, 7.20261)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, -0.0336897)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, -5.81136)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(10.5667, 0, 0, 0, -1.1443e-08, -14.9575, 0, 0.261784, -6.53813e-07, 0, 2.82925, 7.58905)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(10.5667, 0, 0, 0, -1.1443e-08, -14.9575, 0, 0.261784, -6.53813e-07, 0, 2.82925, -7.31373)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.61886e-07, -0.261784, 0, 10.5667, -1.1443e-08, 0, 0, 0, 14.9575, 5.408, 5, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.61886e-07, -0.261784, 0, 10.5667, -1.1443e-08, 0, 0, 0, 14.9575, -5.36467, 5, 0)
+
+[node name="FinishFlag" parent="." instance=ExtResource("1_53gld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
