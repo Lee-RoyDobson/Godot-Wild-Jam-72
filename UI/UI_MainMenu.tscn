@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://xh388bugsnwa"]
 
-[ext_resource type="Script" path="res://MainMenuControl.gd" id="1_kngcd"]
-[ext_resource type="Texture2D" uid="uid://bov2gnidnfewe" path="res://icon.svg" id="2_2yw71"]
+[ext_resource type="Script" path="res://Scripts/MainMenuControl.gd" id="1_iqksg"]
+[ext_resource type="Texture2D" uid="uid://bov2gnidnfewe" path="res://icon.svg" id="2_7tfyv"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_2j63e"]
-diffuse_texture = ExtResource("2_2yw71")
+diffuse_texture = ExtResource("2_7tfyv")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kngcd")
+script = ExtResource("1_iqksg")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 1

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwaav8bgsdntq"]
 
 [ext_resource type="PackedScene" uid="uid://ct2pa5jvsn6up" path="res://Models/DuckWhite.fbx" id="1_f3fn4"]
-[ext_resource type="Script" path="res://Player.gd" id="2_q0qhq"]
-[ext_resource type="Script" path="res://SmoothCamera.gd" id="3_orkiy"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="2_q0qhq"]
+[ext_resource type="Script" path="res://Scripts/SmoothCamera.gd" id="3_orkiy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yh3y7"]
 radius = 0.202

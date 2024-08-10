@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+class_name Player
 
 @export var SPEED = 5.0
 @export var JUMP_VELOCITY = 4.5
@@ -41,9 +41,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			mouse_motion = -event.relative * 0.001
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		
+
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)
 	camera_pivot.rotate_x(mouse_motion.y)

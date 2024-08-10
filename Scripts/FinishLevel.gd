@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var next_level = "res://debug_level.tscn"
+@export var next_level = "res://UI/UI_MainMenu.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	print(body.name)
-	if body.name != "Player":
+	if body.name != "Duck":
 		print("Not a player, ignoring")
 		return
 	print("Flag reached")
