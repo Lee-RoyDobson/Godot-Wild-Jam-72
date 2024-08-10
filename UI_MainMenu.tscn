@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://xh388bugsnwa"]
+
+[ext_resource type="Script" path="res://MainMenuControl.gd" id="1_kngcd"]
+[ext_resource type="Texture2D" uid="uid://bov2gnidnfewe" path="res://icon.svg" id="2_2yw71"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_2j63e"]
+diffuse_texture = ExtResource("2_2yw71")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kngcd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 190.0
+offset_bottom = 210.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 44
+text = "Light and dark (now with duck from devil may cry) "
+fit_content = true
+
+[node name="Exit Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -136.0
+offset_right = 68.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "exit"
+icon = SubResource("CanvasTexture_2j63e")
+
+[node name="Start Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -84.5
+offset_top = -392.0
+offset_right = 84.5
+offset_bottom = -256.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "start
+"
+icon = SubResource("CanvasTexture_2j63e")
+
+[connection signal="pressed" from="Exit Button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Start Button" to="." method="_on_start_button_pressed"]
