@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://6s06ce6c5j1x"]
 
 [ext_resource type="Script" path="res://FinishLevel.gd" id="1_4yphw"]
-[ext_resource type="PackedScene" uid="uid://ctorsr8yf3lpt" path="res://Blender files/Exit Pedastal.blend" id="2_u6nwl"]
+[ext_resource type="PackedScene" path="res://Blender files/Exit Pedastal.glb" id="2_6gtmr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_lll4u"]
 radius = 1.0
@@ -15,6 +15,6 @@ script = ExtResource("1_4yphw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_lll4u")
 
-[node name="Exit Pedastal" parent="." instance=ExtResource("2_u6nwl")]
+[node name="Exit Pedastal" parent="." instance=ExtResource("2_6gtmr")]
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
