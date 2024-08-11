@@ -1,21 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://jc0m3ejeo50l"]
+[gd_scene load_steps=12 format=3 uid="uid://jc0m3ejeo50l"]
 
 [ext_resource type="Shader" path="res://ursc/spatial/standard_opaque.gdshader" id="1_535oo"]
-[ext_resource type="Script" path="res://Scripts/Mechanics/Interactables/InteractionMasterA.gd" id="1_dj7ys"]
 [ext_resource type="Texture2D" uid="uid://dll1w7x2vs308" path="res://Models/Mechanics/Interactables/ButtonTexture1Low.png" id="2_5f6dh"]
 
-[sub_resource type="GDScript" id="GDScript_jckot"]
-resource_name = "ButtonController"
-script/source = "extends Node3D
+[sub_resource type="GDScript" id="GDScript_2jpg8"]
+resource_name = "ButtonInteract"
+script/source = "extends Interact_Node
 
-var Parent_ref:Interact_Node
+class_name Button_Interaction
 
-func _ready():
-	Parent_ref = get_parent()
-	Parent_ref.Interacted.connect(Action)
+func Interact():
+	$PsxButtonT1/AnimationPlayer.play(\"ButtonBAction_001\")
 
-func Action():
-	$\"../PsxButtonT1/AnimationPlayer\".play(\"ButtonBAction_001\")
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvj6c"]
@@ -127,10 +123,7 @@ _data = {
 size = Vector3(0.35, 0.25, 0.35)
 
 [node name="Button_node" type="Node3D" groups=["Interactable"]]
-script = ExtResource("1_dj7ys")
-
-[node name="ButtonControl" type="Node3D" parent="."]
-script = SubResource("GDScript_jckot")
+script = SubResource("GDScript_2jpg8")
 
 [node name="PsxButtonT1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)

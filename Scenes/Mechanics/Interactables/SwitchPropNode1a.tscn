@@ -1,28 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://muec5pc5rroc"]
+[gd_scene load_steps=13 format=3 uid="uid://muec5pc5rroc"]
 
 [ext_resource type="Shader" path="res://ursc/spatial/standard_opaque.gdshader" id="1_cqwyp"]
-[ext_resource type="Script" path="res://Scripts/Mechanics/Interactables/InteractionMasterA.gd" id="1_xp70r"]
 [ext_resource type="Texture2D" uid="uid://dr1x1kh8baanq" path="res://Models/Mechanics/Interactables/SwitchTexture1a.png" id="2_ky68r"]
 
-[sub_resource type="GDScript" id="GDScript_4fhc0"]
-resource_name = "SwitchControllerA"
-script/source = "extends Node3D
+[sub_resource type="GDScript" id="GDScript_2mmt4"]
+resource_name = "SwitchInteraction"
+script/source = "extends Interact_Node
 
-var Parent_ref:Interact_Node
+class_name Button_Interaction
 var Active:bool = false
 
-func _ready():
-	Parent_ref = get_parent()
-	Parent_ref.Interacted.connect(Action)
-
-func Action():
+func Interact():
 	var Anim:String = \"Activate\"
 	if Active:
 		Anim = \"Deactivate\"
 	
-	$\"../PsxSwitchT1/AnimationPlayer\".play(Anim,0.5)
+	$PsxSwitchT1/AnimationPlayer.play(Anim,0.5)
 	
 	Active = !Active
+
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ofqyq"]
@@ -151,10 +147,7 @@ _data = {
 size = Vector3(0.35, 0.25, 0.7)
 
 [node name="Switch_node" type="Node3D" groups=["Interactable"]]
-script = ExtResource("1_xp70r")
-
-[node name="SwitchControl" type="Node3D" parent="."]
-script = SubResource("GDScript_4fhc0")
+script = SubResource("GDScript_2mmt4")
 
 [node name="PsxSwitchT1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
