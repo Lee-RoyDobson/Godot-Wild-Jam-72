@@ -7,7 +7,7 @@
 resource_name = "SwitchInteraction"
 script/source = "extends Interact_Node
 
-class_name Button_Interaction
+class_name Switch_Interaction
 var Active:bool = false
 
 func Interact():
