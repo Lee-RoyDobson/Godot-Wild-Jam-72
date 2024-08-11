@@ -25,51 +25,53 @@ environment = SubResource("Environment_bdpc8")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 14.9575, 0, 0, 0)
 use_collision = true
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, 5.01941)
 use_collision = true
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 4.91517, 0.899567, 7.20261)
 use_collision = true
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 1.34431, 1.61746, 7.20261)
 use_collision = true
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -1.13013, 2.39487, 7.20261)
 use_collision = true
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -3.69156, 3.161, 7.20261)
 use_collision = true
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, -0.0336897)
 use_collision = true
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, -5.81136)
 use_collision = true
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, -1.1443e-08, -14.9575, 0, 0.261784, -6.53813e-07, 0, 2.82925, 7.58905)
 use_collision = true
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, -1.1443e-08, -14.9575, 0, 0.261784, -6.53813e-07, 0, 2.82925, -7.31373)
 use_collision = true
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-4.61886e-07, -0.261784, 0, 10.5667, -1.1443e-08, 0, 0, 0, 14.9575, 5.408, 5, 0)
 use_collision = true
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(-4.61886e-07, -0.261784, 0, 10.5667, -1.1443e-08, 0, 0, 0, 14.9575, -5.36467, 5, 0)
 use_collision = true
 

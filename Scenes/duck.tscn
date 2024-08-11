@@ -6,22 +6,25 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yh3y7"]
 radius = 0.202
-height = 0.646
+height = 0.75
 
 [node name="Duck" instance=ExtResource("1_f3fn4")]
 script = ExtResource("2_q0qhq")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.275, 0)
 
 [node name="DuckWhite_001" parent="RootNode" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.276, 0)
 shape = SubResource("CapsuleShape3D_yh3y7")
 
 [node name="CameraPivot" type="Node3D" parent="." index="3"]
 
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.994522, 0.104528, 0, -0.104528, 0.994522, 0, 0.59733, -0.167496)
+transform = Transform3D(1, 0, 0, 0, 0.994522, 0.104528, 0, -0.104528, 0.994522, 0, 0.290399, -0.000267133)
+near = 0.01
 script = ExtResource("3_orkiy")
 Camera_speed = 0.5
