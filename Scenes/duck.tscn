@@ -25,3 +25,9 @@ shape = SubResource("CapsuleShape3D_yh3y7")
 transform = Transform3D(1, 0, 0, 0, 0.994522, 0.104528, 0, -0.104528, 0.994522, 0, 0.59733, -0.167496)
 script = ExtResource("3_orkiy")
 Camera_speed = 0.5
+
+[node name="InteractionLine" type="RayCast3D" parent="CameraPivot/SmoothCamera" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+enabled = false
+target_position = Vector3(0, 0, 3)
+collide_with_areas = true

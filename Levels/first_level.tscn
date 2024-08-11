@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d35f53noudmqs"]
+[gd_scene load_steps=8 format=3 uid="uid://d35f53noudmqs"]
 
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
+[ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="3_p74du"]
+[ext_resource type="PackedScene" uid="uid://jc0m3ejeo50l" path="res://Scenes/Mechanics/Interactables/ButtonPropNode1a.tscn" id="4_ud8up"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vio4r"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -14,6 +16,11 @@ sky_material = SubResource("ProceduralSkyMaterial_vio4r")
 background_mode = 2
 sky = SubResource("Sky_pt73b")
 tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_min_cell_size = 12.0
 glow_enabled = true
 
 [node name="FirstLevel" type="Node3D"]
@@ -78,3 +85,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
 
 [node name="Duck" parent="." instance=ExtResource("2_56834")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32957, 4.86776, 5.16208)
+
+[node name="Switch_node" parent="." instance=ExtResource("3_p74du")]
+transform = Transform3D(2.98023e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 2.98023e-08, -8.88178e-16, -5.25, 4.75, 0)
+
+[node name="Button_node" parent="." instance=ExtResource("4_ud8up")]
+transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -5.25, 4.75, 0.5)
