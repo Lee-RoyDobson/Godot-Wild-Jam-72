@@ -2,7 +2,6 @@ extends CharacterBody3D
 class_name Player
 
 @export var Speed = 5.0
-@export var Air_Speed = 7.5
 @export var JUMP_VELOCITY = 4.5
 
 @export var Acceleration = 30.0
@@ -63,5 +62,5 @@ func _input(event: InputEvent) -> void:
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x*mouse_sens)
 	camera_pivot.rotate_x(-mouse_motion.y*mouse_sens)
-	camera_pivot.rotation_degrees.x = clampf(camera_pivot.rotation_degrees.x, -90.0, 90.0)
+	camera_pivot.rotation_degrees.x = clampf(camera_pivot.rotation_degrees.x, -89.0, 89.0)
 	mouse_motion = Vector2.ZERO

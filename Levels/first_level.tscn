@@ -29,8 +29,9 @@ shadow_enabled = true
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 14.9575, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 use_collision = true
+size = Vector3(11, 0.25, 15)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, 5.01941)
@@ -61,20 +62,24 @@ transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225
 use_collision = true
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(10.5667, 0, 0, 0, -1.1443e-08, -14.9575, 0, 0.261784, -6.53813e-07, 0, 2.82925, 7.58905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 7.5)
 use_collision = true
+size = Vector3(11, 11, 0.25)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(10.5667, 0, 0, 0, -1.1443e-08, -14.9575, 0, 0.261784, -6.53813e-07, 0, 2.82925, -7.31373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -7.5)
 use_collision = true
+size = Vector3(11, 15, 0.25)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.61886e-07, -0.261784, 0, 10.5667, -1.1443e-08, 0, 0, 0, 14.9575, 5.408, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 5, 0)
 use_collision = true
+size = Vector3(0.25, 11, 15)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(-4.61886e-07, -0.261784, 0, 10.5667, -1.1443e-08, 0, 0, 0, 14.9575, -5.36467, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 5, 0)
 use_collision = true
+size = Vector3(0.25, 11, 15)
 
 [node name="FinishFlag" parent="." instance=ExtResource("1_53gld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
