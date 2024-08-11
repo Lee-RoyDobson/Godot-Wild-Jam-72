@@ -33,9 +33,11 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var input_dir = Input.get_vector("move_left", "move_right", "move_back", "move_forward")
+	var direction = (transform.basis * Vector3(-input_dir.x, 0, input_dir.y)).normalized()
 	
+	print(input_dir)
+	#Acceleration and Decceleration
 	var onfloor = is_on_floor()
 	var acc_val = Acceleration 
 	if !is_on_floor(): acc_val = AirAcceleration
@@ -43,10 +45,14 @@ func _physics_process(delta):
 		acc_val = Decceleration
 		if !is_on_floor(): acc_val = AirDrag
 	
+	#convert velocity to 2D plane vector to linearly move it to target velocity
 	var flat_vel:Vector2 = Vector2(get_real_velocity().x,get_real_velocity().z)
 	var next_flat_vel = flat_vel.move_toward(Vector2(direction.x * Speed,direction.z * Speed),acc_val*delta)
 	velocity = Vector3(next_flat_vel.x, velocity.y, next_flat_vel.y)
-
+	
+	#move player
+	if is_on_floor():
+		apply_floor_snap()
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
@@ -56,6 +62,6 @@ func _input(event: InputEvent) -> void:
 
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x*mouse_sens)
-	camera_pivot.rotate_x(mouse_motion.y*mouse_sens)
+	camera_pivot.rotate_x(-mouse_motion.y*mouse_sens)
 	camera_pivot.rotation_degrees.x = clampf(camera_pivot.rotation_degrees.x, -90.0, 90.0)
 	mouse_motion = Vector2.ZERO

@@ -13,5 +13,6 @@ func _physics_process(delta: float) -> void:
 		#get_parent().global_transform, weight
 	#)
 	position = offset #+ Vector3(0.0, 0.55, -0.238)
+	#global_rotation_degrees = get_parent_node_3d().global_rotation_degrees + Vector3(0,180,0)
 	#global_position.y += 0.5
 	#global_position.x += 0.5
