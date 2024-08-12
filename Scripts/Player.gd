@@ -9,6 +9,8 @@ class_name Player
 @export var AirAcceleration = 15.0
 @export var AirDrag = 3.5
 
+var Ray_interact:RayCast3D
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
@@ -17,6 +19,8 @@ var mouse_sens = 1
 @onready var camera_pivot: Node3D = $CameraPivot
 
 func _ready() -> void:
+	if Ray_interact == null:
+		Ray_interact = $CameraPivot/SubViewportContainer/SubViewport/SmoothCamera/InteractionLine
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
@@ -27,10 +31,10 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# Handles interaction signaling
-	if Input.is_action_just_pressed("ui_cancel"):
-		$CameraPivot/SmoothCamera/InteractionLine.force_raycast_update()
-		if($CameraPivot/SmoothCamera/InteractionLine.is_colliding()):
-			var Collider:Node3D = $CameraPivot/SmoothCamera/InteractionLine.get_collider()
+	if Input.is_action_just_pressed("action_interact"):
+		Ray_interact.force_raycast_update()
+		if(Ray_interact.is_colliding()):
+			var Collider:Node3D = Ray_interact.get_collider()
 			print(Collider.name)
 			var tt:Interact_Node = Collider.get_parent() as Interact_Node
 			if(tt != null):
@@ -75,6 +79,6 @@ func _input(event: InputEvent) -> void:
 
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x*mouse_sens)
-	camera_pivot.rotate_x(-mouse_motion.y*mouse_sens)
+	camera_pivot.rotate_x(mouse_motion.y*mouse_sens)
 	camera_pivot.rotation_degrees.x = clampf(camera_pivot.rotation_degrees.x, -89.0, 89.0)
 	mouse_motion = Vector2.ZERO

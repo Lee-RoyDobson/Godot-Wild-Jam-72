@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwaav8bgsdntq"]
+[gd_scene load_steps=7 format=3 uid="uid://cwaav8bgsdntq"]
 
 [ext_resource type="PackedScene" uid="uid://ct2pa5jvsn6up" path="res://Models/DuckWhite.fbx" id="1_f3fn4"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_q0qhq"]
+[ext_resource type="Shader" path="res://ursc/canvas_item/dithering.gdshader" id="3_fpmif"]
 [ext_resource type="Script" path="res://Scripts/SmoothCamera.gd" id="3_orkiy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yh3y7"]
 radius = 0.202
 height = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f7v2p"]
+shader = ExtResource("3_fpmif")
+shader_parameter/color_depth = 24.0
 
 [node name="Duck" groups=["Player"] instance=ExtResource("1_f3fn4")]
 axis_lock_angular_x = true
@@ -25,14 +30,29 @@ shape = SubResource("CapsuleShape3D_yh3y7")
 
 [node name="CameraPivot" type="Node3D" parent="." index="3"]
 
-[node name="SmoothCamera" type="Camera3D" parent="CameraPivot" index="0"]
-transform = Transform3D(-1, 9.13817e-09, -8.69439e-08, 0, 0.994522, 0.104528, 8.74228e-08, 0.104528, -0.994522, 0, 0.290399, -0.000267133)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CameraPivot" index="0"]
+material = SubResource("ShaderMaterial_f7v2p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CameraPivot/SubViewportContainer" index="0"]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="SmoothCamera" type="Camera3D" parent="CameraPivot/SubViewportContainer/SubViewport" index="0"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.290399, -0.000267133)
 current = true
 near = 0.01
 script = ExtResource("3_orkiy")
 Camera_speed = 0.5
 
-[node name="InteractionLine" type="RayCast3D" parent="CameraPivot/SmoothCamera" index="0"]
+[node name="InteractionLine" type="RayCast3D" parent="CameraPivot/SubViewportContainer/SubViewport/SmoothCamera" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 enabled = false
 target_position = Vector3(0, 0, 3)
