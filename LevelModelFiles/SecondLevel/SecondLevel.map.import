@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dlgvlhc2qroma"
+path="res://.godot/imported/SecondLevel.map-56a4e12cff724985a3779f4af95a4afa.tres"
+
+[deps]
+
+source_file="res://LevelModelFiles/SecondLevel/SecondLevel.map"
+dest_files=["res://.godot/imported/SecondLevel.map-56a4e12cff724985a3779f4af95a4afa.tres"]
+
+[params]
+

@@ -2,35 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-=======
-uid="uid://c8xykagintwln"
-path="res://.godot/imported/Wall2.png-c10b32e9c6e849635fdb4ac06087aa09.ctex"
+uid="uid://l62n41453ltv"
+path.s3tc="res://.godot/imported/Wall2.png-c10b32e9c6e849635fdb4ac06087aa09.s3tc.ctex"
 metadata={
-"vram_texture": false
->>>>>>> a71c704a12b25d3f5fcc72a5240672cedc30314c
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
 source_file="res://textures/Wall2.png"
-
-=======
-dest_files=["res://.godot/imported/Wall2.png-c10b32e9c6e849635fdb4ac06087aa09.ctex"]
+dest_files=["res://.godot/imported/Wall2.png-c10b32e9c6e849635fdb4ac06087aa09.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
->>>>>>> a71c704a12b25d3f5fcc72a5240672cedc30314c
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-
-=======
-mipmaps/generate=false
->>>>>>> a71c704a12b25d3f5fcc72a5240672cedc30314c
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -40,7 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-
-=======
-detect_3d/compress_to=1
->>>>>>> a71c704a12b25d3f5fcc72a5240672cedc30314c
+detect_3d/compress_to=0
