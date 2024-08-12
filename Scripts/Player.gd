@@ -55,9 +55,13 @@ func _physics_process(delta):
 		if !is_on_floor(): acc_val = AirDrag
 	
 	#convert velocity to 2D plane vector to linearly move it to target velocity
-	var flat_vel:Vector2 = Vector2(get_real_velocity().x,get_real_velocity().z)
+	var flat_vel:Vector2 = Vector2(get_real_velocity().x-get_platform_velocity().x,get_real_velocity().z-get_platform_velocity().z)
 	var next_flat_vel = flat_vel.move_toward(Vector2(direction.x * Speed,direction.z * Speed),acc_val*delta)
 	velocity = Vector3(next_flat_vel.x, velocity.y, next_flat_vel.y)
+	
+	#rotate with platform
+	if get_platform_angular_velocity().y != 0:
+		rotate_y(deg_to_rad(get_platform_angular_velocity().y))
 	
 	#move player
 	if is_on_floor():

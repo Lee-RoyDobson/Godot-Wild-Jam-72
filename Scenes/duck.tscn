@@ -9,6 +9,8 @@ radius = 0.202
 height = 0.75
 
 [node name="Duck" groups=["Player"] instance=ExtResource("1_f3fn4")]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource("2_q0qhq")
 
 [node name="RootNode" parent="." index="0"]
