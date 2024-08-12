@@ -26,6 +26,16 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
+	# Handles interaction signaling
+	if Input.is_action_just_pressed("ui_cancel"):
+		$CameraPivot/SmoothCamera/InteractionLine.force_raycast_update()
+		if($CameraPivot/SmoothCamera/InteractionLine.is_colliding()):
+			var Collider:Node3D = $CameraPivot/SmoothCamera/InteractionLine.get_collider()
+			print(Collider.name)
+			var tt:Interact_Node = Collider.get_parent() as Interact_Node
+			if(tt != null):
+				tt.Interact()
+
 	# Handle jump.
 	if Input.is_action_just_pressed("action_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
