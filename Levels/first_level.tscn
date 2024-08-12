@@ -77,4 +77,4 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
 
 [node name="Duck" parent="." instance=ExtResource("2_56834")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32957, 4.86776, 5.16208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.94784, 4.97127)
