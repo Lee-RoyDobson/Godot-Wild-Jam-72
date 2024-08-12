@@ -9,9 +9,17 @@ script/source = "extends Interact_Node
 
 class_name Button_Interaction
 
-func Interact():
-	$PsxButtonT1/AnimationPlayer.play(\"ButtonBAction_001\")
+var timer
 
+func Interact():
+	$PsxButtonT1/AnimationPlayer.stop()
+	$PsxButtonT1/AnimationPlayer.play(\"ButtonBAction_001\")
+	SendInteraction(true)
+	$Timer.wait_time = $PsxButtonT1/AnimationPlayer.current_animation_length
+	$Timer.start()
+	
+func Unhock():
+	SendInteraction(false)
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rvj6c"]
@@ -148,3 +156,7 @@ libraries = {
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0)
 shape = SubResource("BoxShape3D_b0apf")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="Unhock"]

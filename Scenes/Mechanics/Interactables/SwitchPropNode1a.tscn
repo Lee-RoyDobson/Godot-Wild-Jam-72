@@ -11,13 +11,15 @@ class_name Switch_Interaction
 var Active:bool = false
 
 func Interact():
-	var Anim:String = \"Activate\"
+	Active = !Active
+	var Anim:String = \"Deactivate\"
 	if Active:
-		Anim = \"Deactivate\"
+		Anim = \"Activate\"
+		
+	SendInteraction(Active)
 	
 	$PsxSwitchT1/AnimationPlayer.play(Anim,0.5)
 	
-	Active = !Active
 
 "
 
