@@ -49,23 +49,21 @@ func switch_to_dark() -> void:
 	
 
 func _switch_world(b_switch_to_light: bool) -> void:
-	# Loop through light-only objects
-	for obj in light_only_objects:
-		if obj:  # Check if the object is not null
-			obj.visible = b_switch_to_light  # Set visibility based on the switch
-			if obj.has_method("set_collision_enabled"):
-				obj.set_collision_enabled(b_switch_to_light)  # Set collision if the method exists
+	# Update light-only objects
+	update_objects(light_only_objects, b_switch_to_light)
 
-	# Loop through dark-only objects
-	for obj in dark_only_objects:
-		if obj:  # Check if the object is not null
-			obj.visible = !b_switch_to_light  # Set visibility to the opposite of the switch
-			if obj.has_method("set_collision_enabled"):
-				obj.set_collision_enabled(!b_switch_to_light)  # Set collision if the method exists
+	# Update dark-only objects (with the opposite of b_switch_to_light)
+	update_objects(dark_only_objects, !b_switch_to_light)
 
 	# Output the new world state for debugging
 	print("Switched to " + ("light" if b_switch_to_light else "dark") + " world.")
 	
+func update_objects(objects, is_light_world: bool):
+	for obj in objects:
+		if obj:  # Check if the object is not null
+			obj.visible = is_light_world  # Set visibility based on the mode
+			# Set process mode based on the mode
+			obj.process_mode = Node.PROCESS_MODE_INHERIT if is_light_world else Node.PROCESS_MODE_DISABLED
 	
 # Public method to add light only objects to the list
 func add_light_object(obj):

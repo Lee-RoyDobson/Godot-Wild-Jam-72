@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d35f53noudmqs"]
+[gd_scene load_steps=21 format=3 uid="uid://d35f53noudmqs"]
 
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
@@ -26,6 +26,12 @@ sdfgi_enabled = true
 sdfgi_min_cell_size = 12.0
 glow_enabled = true
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku4mv"]
+albedo_color = Color(0.658824, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evoe5"]
+albedo_color = Color(0, 0.243137, 1, 1)
+
 [sub_resource type="Curve3D" id="Curve3D_3ibqj"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 0, 0, 0.75, 0, 0, 2, 0, 0, -0.5, 0, 0, 0, 0, 1, 4, 0, 0, 0, 0, 0, 0, 0, 1, 8),
@@ -46,6 +52,16 @@ albedo_color = Color(0.721569, 0.721569, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2231"]
 albedo_color = Color(0, 0.329412, 0.972549, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gkljm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x8he6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2of4"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0ax"]
+albedo_color = Color(0, 0, 1, 1)
+
 [node name="FirstLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -64,8 +80,11 @@ transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225
 use_collision = true
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 4.91517, 0.899567, 7.20261)
+transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 4.42125, 0.899567, 6.51216)
 use_collision = true
+material = SubResource("StandardMaterial3D_ku4mv")
+
+[node name="LightObject" parent="CSGBox3D9" instance=ExtResource("6_ulwkn")]
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 1.34431, 1.61746, 7.20261)
@@ -74,6 +93,9 @@ use_collision = true
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -1.13013, 2.39487, 7.20261)
 use_collision = true
+material = SubResource("StandardMaterial3D_evoe5")
+
+[node name="DarkObject" parent="CSGBox3D11" instance=ExtResource("7_6v48h")]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -3.69156, 3.161, 7.20261)
@@ -139,3 +161,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25135, 5.19186, -0.0002408
 material = SubResource("StandardMaterial3D_o2231")
 
 [node name="DarkObject" parent="Test Dark Object" instance=ExtResource("7_6v48h")]
+
+[node name="Test Light Object Collision" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65661, 3.83733, 2.55166)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Light Object Collision"]
+shape = SubResource("BoxShape3D_gkljm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Test Light Object Collision"]
+mesh = SubResource("BoxMesh_x8he6")
+surface_material_override/0 = SubResource("StandardMaterial3D_i2of4")
+
+[node name="LightObject" parent="Test Light Object Collision" instance=ExtResource("6_ulwkn")]
+
+[node name="Test DArk Object Collision2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14134, 3.83689, 2.45554)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test DArk Object Collision2"]
+shape = SubResource("BoxShape3D_gkljm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Test DArk Object Collision2"]
+mesh = SubResource("BoxMesh_x8he6")
+surface_material_override/0 = SubResource("StandardMaterial3D_md0ax")
+
+[node name="DarkObject" parent="Test DArk Object Collision2" instance=ExtResource("7_6v48h")]
