@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bxdcujbv80ssr"]
+
+[ext_resource type="Texture2D" uid="uid://bk3y371ar74un" path="res://textures/FoamTest.png" id="1_ap301"]
+
+[resource]
+albedo_texture = ExtResource("1_ap301")
+metallic_specular = 0.0
+texture_filter = 2
