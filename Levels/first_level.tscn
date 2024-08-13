@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://d35f53noudmqs"]
+[gd_scene load_steps=17 format=3 uid="uid://d35f53noudmqs"]
 
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="3_p74du"]
 [ext_resource type="PackedScene" uid="uid://jc0m3ejeo50l" path="res://Scenes/Mechanics/Interactables/ButtonPropNode1a.tscn" id="4_ud8up"]
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="5_53elq"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/light_object.tscn" id="6_ulwkn"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/dark_object.tscn" id="7_6v48h"]
+[ext_resource type="PackedScene" uid="uid://dpedkq7hyos31" path="res://Scenes/test_light_object_collision.tscn" id="8_erif2"]
+[ext_resource type="PackedScene" uid="uid://qy61ekrgmgd3" path="res://Scenes/test_dark_object_collision_2.tscn" id="9_qdxqt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vio4r"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,6 +27,12 @@ ssil_enabled = true
 sdfgi_enabled = true
 sdfgi_min_cell_size = 12.0
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ku4mv"]
+albedo_color = Color(0.658824, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evoe5"]
+albedo_color = Color(0, 0.243137, 1, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_3ibqj"]
 _data = {
@@ -56,8 +66,11 @@ transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225
 use_collision = true
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
-transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 4.91517, 0.899567, 7.20261)
+transform = Transform3D(3.95359, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 4.42125, 0.899567, 6.51216)
 use_collision = true
+material = SubResource("StandardMaterial3D_ku4mv")
+
+[node name="LightObject" parent="CSGBox3D9" instance=ExtResource("6_ulwkn")]
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 1.34431, 1.61746, 7.20261)
@@ -66,6 +79,9 @@ use_collision = true
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -1.13013, 2.39487, 7.20261)
 use_collision = true
+material = SubResource("StandardMaterial3D_evoe5")
+
+[node name="DarkObject" parent="CSGBox3D11" instance=ExtResource("7_6v48h")]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -3.69156, 3.161, 7.20261)
@@ -98,11 +114,15 @@ use_collision = true
 [node name="FinishFlag" parent="." instance=ExtResource("1_53gld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
 
+[node name="LightObject" parent="FinishFlag" instance=ExtResource("6_ulwkn")]
+
 [node name="Duck" parent="." instance=ExtResource("2_56834")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32957, 4.86776, 5.16208)
 
 [node name="Button_node" parent="." instance=ExtResource("4_ud8up")]
 transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -5.25, 4.75, 0.5)
+
+[node name="DarkObject" parent="Button_node" instance=ExtResource("7_6v48h")]
 
 [node name="MovingPlatform" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("5_53elq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 4.5, -1)
@@ -112,6 +132,8 @@ Signal_Ref = NodePath("Switch_node")
 [node name="Switch_node" parent="MovingPlatform" instance=ExtResource("3_p74du")]
 transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, 0, 0.35, -0.413)
 
+[node name="LightObject" parent="MovingPlatform" instance=ExtResource("6_ulwkn")]
+
 [node name="MovingPlatform2" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("5_53elq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.25, 2.5)
 curve = SubResource("Curve3D_64sqx")
@@ -119,3 +141,7 @@ Signal_Ref = NodePath("Button_node")
 metadata/NoPodium = true
 
 [node name="Button_node" parent="MovingPlatform2" instance=ExtResource("4_ud8up")]
+
+[node name="Test Light Object Collision" parent="." instance=ExtResource("8_erif2")]
+
+[node name="Test Dark Object Collision2" parent="." instance=ExtResource("9_qdxqt")]
