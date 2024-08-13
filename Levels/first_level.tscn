@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_3h0nj"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_l6qpu"]
-[ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="3_be7rq"]
-[ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_jurl1"]
+[ext_resource type="Material" path="res://textures/PlankTexture1.tres" id="3_be7rq"]
+[ext_resource type="Material" path="res://textures/MegaBrickTexture2.tres" id="4_jurl1"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="5_kdxcy"]
-[ext_resource type="Material" uid="uid://b1rw4f48fpjkg" path="res://textures/Floor.tres" id="6_i0s28"]
+[ext_resource type="Material" path="res://textures/Floor.tres" id="6_i0s28"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="7_phtdd"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="8_efl8x"]
 
@@ -176,6 +176,13 @@ points = PackedVector3Array(-24.5, 5.78125, -6.5, -24.5, 5.28125, -6.5, -8, 5.28
 
 [node name="FirstLevel" type="Node3D"]
 
+[node name="FinishFlag" parent="." instance=ExtResource("8_efl8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05785, 4.05927, 13.0031)
+next_level = "res://Levels/second_level.tscn"
+
+[node name="Exit Pedastal" parent="FinishFlag" index="1"]
+visible = false
+
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("1_3h0nj")
 local_map_file = "res://LevelModelFiles/FirstLevel/LevelOne.map"
@@ -298,7 +305,4 @@ shape = SubResource("ConvexPolygonShape3D_l0p88")
 [node name="Duck" parent="." instance=ExtResource("7_phtdd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74416, 1.00354, 0)
 
-[node name="FinishFlag" parent="Duck" instance=ExtResource("8_efl8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.68631, 3.05573, 13.0031)
-visible = false
-next_level = "res://Levels/second_level.tscn"
+[editable path="FinishFlag"]
