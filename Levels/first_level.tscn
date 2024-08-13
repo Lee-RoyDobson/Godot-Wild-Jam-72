@@ -1,26 +1,6 @@
-[gd_scene load_steps=50 format=3 uid="uid://d35f53noudmqs"]
 
-[ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
-[ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_nb5g5"]
-[ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
-[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_a5ujc"]
-[ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="3_kbuou"]
-[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="3_vnja4"]
-[ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_abbi8"]
-[ext_resource type="Material" uid="uid://b1rw4f48fpjkg" path="res://textures/Floor.tres" id="6_kyvvw"]
+[gd_scene format=3 uid="uid://c50pyorekhds2"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vio4r"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_5pn3o"]
-sky_material = SubResource("ProceduralSkyMaterial_vio4r")
-
-[sub_resource type="Environment" id="Environment_bdpc8"]
-background_mode = 2
-sky = SubResource("Sky_5pn3o")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eujrx"]
 albedo_texture = ExtResource("3_vnja4")
@@ -189,6 +169,7 @@ points = PackedVector3Array(-24.5, 5.78125, -6.5, -24.5, 5.28125, -6.5, -8, 5.28
 
 [node name="FirstLevel" type="Node3D"]
 
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bdpc8")
 
@@ -322,3 +303,4 @@ next_level = "res://Levels/second_level.tscn"
 
 [node name="Duck" parent="." instance=ExtResource("2_56834")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2858, 3.08381, 4.97127)
+
