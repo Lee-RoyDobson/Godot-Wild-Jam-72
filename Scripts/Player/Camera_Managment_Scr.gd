@@ -14,6 +14,7 @@ func _ready():
 	Cam_Offset = Cam.position
 	
 	get_viewport().size_changed.connect(ViewportResize)
+	ViewportResize()
 	pass # Replace with function body.
 
 
@@ -28,5 +29,5 @@ func _process(delta):
 func ViewportResize():
 	var NewView:Vector2i = get_viewport().get_window().size
 	Sub_Contain.size = Vector2i(NewView.x, NewView.y)
-	Sub_Contain.scale = Vector2(1152/NewView.x,648/NewView.y)
+	Sub_Contain.scale = Vector2(1152/float(NewView.x),648/float(NewView.y))
 	#PreviousSize = Vector2I(NewView.X, NewView.Y);

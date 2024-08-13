@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://cd8l2lpn5q48i"]
+[gd_scene load_steps=66 format=3 uid="uid://cd8l2lpn5q48i"]
 
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="1_lccaw"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_w7a0o"]
@@ -9,6 +9,8 @@
 [ext_resource type="Material" uid="uid://isesel8wh60u" path="res://textures/MegaBrickTexture1.tres" id="6_mm6yn"]
 [ext_resource type="Material" uid="uid://bru57crfiot0l" path="res://textures/CarpetTexture1.tres" id="7_d1lwj"]
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="8_br5cd"]
+[ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="10_pysrn"]
+[ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="11_yyb0r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7s0rl"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -246,6 +248,13 @@ points = PackedVector3Array(-2, 6, 5.75, -1.5, 5.5, 5.75, 2.25, 5.5, 5.75, 2.25,
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_twypy"]
 points = PackedVector3Array(-2, 6, 6.75, -1.5, 5.5, 6.75, 2.25, 5.5, 6.75, 2.25, 6, 6.75, -2, 6, 7.25, -1.5, 5.5, 7.25, 2.25, 5.5, 7.25, 2.25, 6, 7.25)
 
+[sub_resource type="Curve3D" id="Curve3D_lfil6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.25, 0),
+"tilts": PackedFloat32Array(0, 1.571)
+}
+point_count = 2
+
 [node name="TestTexturedLevel" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -415,3 +424,11 @@ shape = SubResource("ConvexPolygonShape3D_3o8hy")
 
 [node name="entity_0_brush_47_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
 shape = SubResource("ConvexPolygonShape3D_twypy")
+
+[node name="MovingPlatform" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("10_pysrn")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.25, -0.25, 7)
+curve = SubResource("Curve3D_lfil6")
+Signal_Ref = NodePath("Switch_node")
+
+[node name="Switch_node" parent="MovingPlatform" instance=ExtResource("11_yyb0r")]
+transform = Transform3D(0.75, 6.55671e-08, -6.55671e-08, -6.55671e-08, -3.27835e-08, -0.75, -6.55671e-08, 0.75, -3.27835e-08, 0, 0.35, -0.4)
