@@ -16,5 +16,15 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name != "Duck":
 		print("Not a player, ignoring")
 		return
+
+	# Clear any object references before moving levels
+	var world_switcher = WorldSwitcher
+
+	# Defer the clearing of objects and scene change to avoid physics processing conflicts
+	call_deferred("deferred_clear_and_change_scene", world_switcher)
+
 	print("Flag reached")
+
+func deferred_clear_and_change_scene(world_switcher):
+	world_switcher.clear_objects()
 	get_tree().change_scene_to_file(next_level)
