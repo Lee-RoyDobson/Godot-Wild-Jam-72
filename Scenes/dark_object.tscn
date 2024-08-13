@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcbm78u2katsa"]
+
+[ext_resource type="Script" path="res://ObjectIdenifier.gd" id="1_tnqfd"]
+
+[node name="DarkObject" type="Node"]
+script = ExtResource("1_tnqfd")
+world_type = 1
