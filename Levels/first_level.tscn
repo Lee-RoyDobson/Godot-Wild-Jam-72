@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d35f53noudmqs"]
+[gd_scene load_steps=17 format=3 uid="uid://d35f53noudmqs"]
 
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="5_53elq"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/light_object.tscn" id="6_ulwkn"]
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/dark_object.tscn" id="7_6v48h"]
+[ext_resource type="PackedScene" uid="uid://dpedkq7hyos31" path="res://Scenes/test_light_object_collision.tscn" id="8_erif2"]
+[ext_resource type="PackedScene" uid="uid://qy61ekrgmgd3" path="res://Scenes/test_dark_object_collision_2.tscn" id="9_qdxqt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vio4r"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -45,22 +47,6 @@ _data = {
 "tilts": PackedFloat32Array(0, 1.57)
 }
 point_count = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3o1lw"]
-albedo_color = Color(0.721569, 0.721569, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o2231"]
-albedo_color = Color(0, 0.329412, 0.972549, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gkljm"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_x8he6"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2of4"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0ax"]
-albedo_color = Color(0, 0, 1, 1)
 
 [node name="FirstLevel" type="Node3D"]
 
@@ -128,11 +114,15 @@ use_collision = true
 [node name="FinishFlag" parent="." instance=ExtResource("1_53gld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
 
+[node name="LightObject" parent="FinishFlag" instance=ExtResource("6_ulwkn")]
+
 [node name="Duck" parent="." instance=ExtResource("2_56834")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.32957, 4.86776, 5.16208)
 
 [node name="Button_node" parent="." instance=ExtResource("4_ud8up")]
 transform = Transform3D(1.91069e-15, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, -1, 0, -4.37114e-08, -5.25, 4.75, 0.5)
+
+[node name="DarkObject" parent="Button_node" instance=ExtResource("7_6v48h")]
 
 [node name="MovingPlatform" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("5_53elq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 4.5, -1)
@@ -142,6 +132,8 @@ Signal_Ref = NodePath("Switch_node")
 [node name="Switch_node" parent="MovingPlatform" instance=ExtResource("3_p74du")]
 transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, 0, 0.35, -0.413)
 
+[node name="LightObject" parent="MovingPlatform" instance=ExtResource("6_ulwkn")]
+
 [node name="MovingPlatform2" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("5_53elq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.25, 2.5)
 curve = SubResource("Curve3D_64sqx")
@@ -150,38 +142,6 @@ metadata/NoPodium = true
 
 [node name="Button_node" parent="MovingPlatform2" instance=ExtResource("4_ud8up")]
 
-[node name="Test Light Object" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3267, 5.19186, 0)
-material = SubResource("StandardMaterial3D_3o1lw")
+[node name="Test Light Object Collision" parent="." instance=ExtResource("8_erif2")]
 
-[node name="LightObject" parent="Test Light Object" instance=ExtResource("6_ulwkn")]
-
-[node name="Test Dark Object" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25135, 5.19186, -0.000240803)
-material = SubResource("StandardMaterial3D_o2231")
-
-[node name="DarkObject" parent="Test Dark Object" instance=ExtResource("7_6v48h")]
-
-[node name="Test Light Object Collision" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65661, 3.83733, 2.55166)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Light Object Collision"]
-shape = SubResource("BoxShape3D_gkljm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Test Light Object Collision"]
-mesh = SubResource("BoxMesh_x8he6")
-surface_material_override/0 = SubResource("StandardMaterial3D_i2of4")
-
-[node name="LightObject" parent="Test Light Object Collision" instance=ExtResource("6_ulwkn")]
-
-[node name="Test DArk Object Collision2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14134, 3.83689, 2.45554)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Test DArk Object Collision2"]
-shape = SubResource("BoxShape3D_gkljm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Test DArk Object Collision2"]
-mesh = SubResource("BoxMesh_x8he6")
-surface_material_override/0 = SubResource("StandardMaterial3D_md0ax")
-
-[node name="DarkObject" parent="Test DArk Object Collision2" instance=ExtResource("7_6v48h")]
+[node name="Test Dark Object Collision2" parent="." instance=ExtResource("9_qdxqt")]
