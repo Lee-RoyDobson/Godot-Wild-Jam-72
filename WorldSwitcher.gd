@@ -9,16 +9,29 @@ var light_only_objects = []
 # List of dark only objects
 var dark_only_objects = []
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	call_deferred("_post_ready")
+#var b_run_once = false;
+# Set this after an object is created to ensure the level gets setup
+var b_setup_level = false;
 
-func _post_ready():
+## Called when the node enters the scene tree for the first time.
+#func _ready() -> void:
+#	call_deferred("_post_ready")
+
+#Call this just before exiting a level
+func clear_objects():
+	light_only_objects = []
+	dark_only_objects = []
+
+func _setup_level():
 	# This code runs only once after the _ready() function
 	print("All initial _ready() calls are done.")
+	_switch_world(b_is_light)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if b_setup_level:
+		_setup_level()
+		b_setup_level = false
 	if Input.is_action_just_pressed("toggle_world") and b_is_light:
 		switch_to_dark()
 	elif Input.is_action_just_pressed("toggle_world") and not b_is_light:
@@ -26,12 +39,14 @@ func _process(delta: float) -> void:
 
 ## Methods are called like this to make expanding them to public and other call methods easier later.
 func switch_to_light() -> void:
-	_switch_world(b_is_light)
 	b_is_light = true
+	_switch_world(b_is_light)
+	
 
 func switch_to_dark() -> void:
-	_switch_world(b_is_light)	
 	b_is_light = false
+	_switch_world(b_is_light)	
+	
 
 func _switch_world(b_switch_to_light: bool) -> void:
 	# Loop through light-only objects
@@ -56,8 +71,10 @@ func _switch_world(b_switch_to_light: bool) -> void:
 func add_light_object(obj):
 	light_only_objects.append(obj)
 	print("Object added. Current list: ", light_only_objects)
+	b_setup_level = true
 	
 # Public method to add light only objects to the list
 func add_dark_object(obj):
 	dark_only_objects.append(obj)
 	print("Object added. Current list: ", dark_only_objects)
+	b_setup_level = true

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfmdhqasxx8ul"]
+
+[ext_resource type="Script" path="res://WorldSwitcher.gd" id="1_f1jan"]
+
+[node name="WorldSwitcher" type="Node"]
+script = ExtResource("1_f1jan")
