@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d35f53noudmqs"]
+[gd_scene load_steps=14 format=3 uid="uid://d35f53noudmqs"]
 
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
+[ext_resource type="Shader" path="res://Shaders/Enviroment/Env_glow.gdshader" id="1_vxsfb"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="3_p74du"]
 [ext_resource type="PackedScene" uid="uid://jc0m3ejeo50l" path="res://Scenes/Mechanics/Interactables/ButtonPropNode1a.tscn" id="4_ud8up"]
@@ -24,6 +25,23 @@ sdfgi_enabled = true
 sdfgi_min_cell_size = 12.0
 glow_enabled = true
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y02p6"]
+render_priority = 0
+shader = ExtResource("1_vxsfb")
+shader_parameter/albedo = Vector4(0.1, 0.1, 1, 1)
+shader_parameter/line_color = Color(0.868777, 0.337941, 0.931607, 1)
+shader_parameter/line_width = 0.002
+shader_parameter/line_blur = 0.2
+shader_parameter/line_speed = 0.02
+shader_parameter/straight_lines = true
+shader_parameter/interrupt_width = 0.5
+shader_parameter/interrupt_blur = 0.25
+shader_parameter/interrupt_speed = 0.2
+shader_parameter/glow_color = Color(0.672759, 0.335644, 0.939252, 1)
+shader_parameter/glow_itensity = 4.5
+shader_parameter/glow_amount = 4.5
+shader_parameter/flickering = 0.55
+
 [sub_resource type="Curve3D" id="Curve3D_3ibqj"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 0, 0, 0.75, 0, 0, 2, 0, 0, -0.5, 0, 0, 0.5, 0, 1, 4, 0, 0, 0, 0, 0, 0, 0, 1, 8),
@@ -37,6 +55,9 @@ _data = {
 "tilts": PackedFloat32Array(0, 1.57)
 }
 point_count = 2
+
+[sub_resource type="SphereMesh" id="SphereMesh_1pngv"]
+material = SubResource("ShaderMaterial_y02p6")
 
 [node name="FirstLevel" type="Node3D"]
 
@@ -75,7 +96,7 @@ use_collision = true
 transform = Transform3D(1.94667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, -3.69156, 3.161, 7.20261)
 use_collision = true
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, -0.0336897)
 use_collision = true
 
@@ -103,6 +124,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 5, 0)
 use_collision = true
 size = Vector3(0.25, 11, 15)
 
+[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D2"]
+transform = Transform3D(10.5667, 0, 0, 0, 0.261784, 0, 0, 0, 3.11983, 0, 4.01225, -0.0336897)
+use_collision = true
+material = SubResource("ShaderMaterial_y02p6")
+
 [node name="FinishFlag" parent="." instance=ExtResource("1_53gld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.17535, -5.77852)
 
@@ -127,3 +155,7 @@ Signal_Ref = NodePath("Button_node")
 metadata/NoPodium = true
 
 [node name="Button_node" parent="MovingPlatform2" instance=ExtResource("4_ud8up")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.20881, -2.78694)
+mesh = SubResource("SphereMesh_1pngv")
