@@ -42,7 +42,7 @@ func Action(bool_ref:bool):
 
 
 func _on_area_3d_body_entered(body:Node3D):
-	if body != self:
+	if body != self && !body.is_in_group(\"DontStopDoors\"):
 		overlap_objects.push_back(body)
 	print(overlap_objects.size(),\" body's name \", body.name)
 	pass # Replace with function body.
