@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://btjv84hes434d"]
+[gd_scene load_steps=23 format=3 uid="uid://btjv84hes434d"]
 
 [ext_resource type="Texture2D" uid="uid://km7k8rapjd2y" path="res://Models/Mechanics/LaserGridDoorT1_LaserWallTexture1.png" id="1_nwipn"]
 [ext_resource type="Shader" path="res://ursc/spatial/standard_opaque.gdshader" id="1_rkjks"]
@@ -33,29 +33,36 @@ func Action(bool_ref:bool):
 	if flipped_action:
 		Activation = !bool_ref
 	
-	var anim = \"Activation\"
 	if !Activation:
-		anim = \"DeActivation\"
-		$CollisionShape3D.disabled = true
-		overlap_objects.clear()
+		#overlap_objects.clear()
+		faz_set(false)
 	else:
-		$CollisionShape3D.disabled = false
-	$LaserGridDoorT1/AnimationPlayer.play(anim)
+		if overlap_objects.size() <= 0:
+			faz_set(true)
 
 
-func _on_area_3d_body_entered(body):
-	overlap_objects.push_back(body)
+func _on_area_3d_body_entered(body:Node3D):
+	if body != self:
+		overlap_objects.push_back(body)
+	print(overlap_objects.size(),\" body's name \", body.name)
 	pass # Replace with function body.
 
 
-func _on_area_3d_body_exited(body):
+func _on_area_3d_body_exited(body:Node3D):
 	var point:int = overlap_objects.find(body)
 	if point >= 0:
 		overlap_objects.remove_at(point)
 		
 	if overlap_objects.size() <= 0 && Activation:
-		$CollisionShape3D.disabled = false
+		call_deferred(\"faz_set\",true)
 	pass # Replace with function body.
+
+func faz_set(b:bool):
+	var str:String = \"Activation\"
+	if (!b):
+		str = \"DeActivation\"
+	$CollisionShape3D.disabled = !b
+	$LaserGridDoorT1/AnimationPlayer.play(str,0.25)
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1ill"]
@@ -110,6 +117,8 @@ shadow_mesh = SubResource("ArrayMesh_wys0h")
 render_priority = 0
 shader = ExtResource("3_npy4s")
 shader_parameter/albedo_color = Color(0.396078, 0.603922, 0.721569, 0.784314)
+shader_parameter/phase_color = Color(0.48913, 0.533577, 0.910683, 0.784314)
+shader_parameter/glow_intesity = 1.0
 shader_parameter/albedo_texture = ExtResource("1_nwipn")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y31wt"]
@@ -283,8 +292,11 @@ _data = {
 "RESET": SubResource("Animation_6e2hc")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkqim"]
+size = Vector3(1, 1, 0.055)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8ymcf"]
-size = Vector3(1, 1, 0.05)
+size = Vector3(0.99, 0.99, 0.05)
 
 [node name="LaserDoor_node" type="StaticBody3D"]
 script = SubResource("GDScript_ugn6v")
@@ -383,10 +395,11 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_8ymcf")
+shape = SubResource("BoxShape3D_xkqim")
 
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_8ymcf")
