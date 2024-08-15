@@ -34,7 +34,7 @@ func Action(bool_ref:bool):
 		Activation = !bool_ref
 	
 	if !Activation:
-		overlap_objects.clear()
+		#overlap_objects.clear()
 		faz_set(false)
 	else:
 		if overlap_objects.size() <= 0:
