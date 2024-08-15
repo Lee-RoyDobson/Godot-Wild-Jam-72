@@ -49,7 +49,6 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_back", "move_forward")
 	var direction = (transform.basis * Vector3(-input_dir.x, 0, input_dir.y)).normalized()
 	
-	print(input_dir)
 	#Acceleration and Decceleration
 	var onfloor = is_on_floor()
 	var acc_val = Acceleration 

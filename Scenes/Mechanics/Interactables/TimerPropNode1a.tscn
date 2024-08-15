@@ -113,6 +113,24 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ptrk4")
 
+[sub_resource type="Animation" id="Animation_f373i"]
+resource_name = "ClockFinish"
+length = 0.291667
+tracks/0/type = "rotation_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimerHandle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "scale_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimerHandle")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 1, 0.75, 1, 0.0666667, 1, 0.72, 0.67, 0.8, 0.1, 1, 0.696667, 0.696667, 0.786296, 0.133333, 1, 0.81, 0.81, 0.874444, 0.166667, 1, 0.983333, 0.983333, 1.00926, 0.2, 1, 1.07667, 1.07667, 1.08185, 0.233333, 1, 1.07, 1.07, 1.04, 0.266667, 1, 1.03, 1.03, 1, 0.291667, 1, 1, 1, 1)
+
 [sub_resource type="Animation" id="Animation_gito7"]
 resource_name = "ClockUp"
 tracks/0/type = "rotation_3d"
@@ -147,24 +165,6 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = PackedFloat32Array(0, 1, 1, 0.75, 1)
 
-[sub_resource type="Animation" id="Animation_f373i"]
-resource_name = "ClockFinish"
-length = 0.291667
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("TimerHandle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
-tracks/1/type = "scale_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("TimerHandle")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 1, 0.75, 1, 0.0666667, 1, 0.72, 0.67, 0.8, 0.1, 1, 0.696667, 0.696667, 0.786296, 0.133333, 1, 0.81, 0.81, 0.874444, 0.166667, 1, 0.983333, 0.983333, 1.00926, 0.2, 1, 1.07667, 1.07667, 1.08185, 0.233333, 1, 1.07, 1.07, 1.04, 0.266667, 1, 1.03, 1.03, 1, 0.291667, 1, 1, 1, 1)
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lqx3l"]
 _data = {
 "ClockFinish": SubResource("Animation_f373i"),
@@ -186,6 +186,7 @@ mesh = SubResource("ArrayMesh_3ot6a")
 skeleton = NodePath("")
 
 [node name="TimerHandle" type="MeshInstance3D" parent="PsxTimerT1"]
+transform = Transform3D(0.984808, 0, 0.173647, 0, 0.75, 0, -0.173647, 0, 0.984808, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7hq4k")
 skeleton = NodePath("")
 
