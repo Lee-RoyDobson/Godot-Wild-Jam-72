@@ -50,10 +50,10 @@ func switch_to_dark() -> void:
 
 func _switch_world(b_switch_to_light: bool) -> void:
 	# Update light-only objects
-	update_objects(light_only_objects, b_switch_to_light)
+	call_deferred("update_objects", light_only_objects, b_switch_to_light)
 
 	# Update dark-only objects (with the opposite of b_switch_to_light)
-	update_objects(dark_only_objects, !b_switch_to_light)
+	call_deferred("update_objects", dark_only_objects, !b_switch_to_light)
 
 	# Output the new world state for debugging
 	print("Switched to " + ("light" if b_switch_to_light else "dark") + " world.")
