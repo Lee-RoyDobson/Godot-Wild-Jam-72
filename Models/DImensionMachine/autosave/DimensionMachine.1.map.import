@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://ovluyu0ruxck"
+path="res://.godot/imported/DimensionMachine.1.map-b951e02c09f3ba4c12ce8620dabbd869.tres"
+
+[deps]
+
+source_file="res://Models/DImensionMachine/autosave/DimensionMachine.1.map"
+dest_files=["res://.godot/imported/DimensionMachine.1.map-b951e02c09f3ba4c12ce8620dabbd869.tres"]
+
+[params]
+
