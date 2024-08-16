@@ -186,7 +186,6 @@ mesh = SubResource("ArrayMesh_3ot6a")
 skeleton = NodePath("")
 
 [node name="TimerHandle" type="MeshInstance3D" parent="PsxTimerT1"]
-transform = Transform3D(0.984808, 0, 0.173647, 0, 0.75, 0, -0.173647, 0, 0.984808, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7hq4k")
 skeleton = NodePath("")
 

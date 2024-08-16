@@ -10,6 +10,7 @@ resource_name = "Laser_Door_Base_A1"
 script/source = "extends StaticBody3D
 
 @export var Signal_Ref:Interact_Node
+@export var Extra_Collision:Area3D
 
 var Activation:bool = false
 @export var flipped_action:bool = false
@@ -20,6 +21,9 @@ var overlap_objects:Array[Node3D] = []
 func _ready():
 	if Signal_Ref != null:
 		Signal_Ref.Interaction_Transmission.connect(Action)
+	if Extra_Collision != null:
+		Extra_Collision.connect(\"body_entered\",_on_area_3d_body_entered)
+		Extra_Collision.connect(\"body_exited\",_on_area_3d_body_exited)
 	Action(Activation)
 	pass # Replace with function body.
 
