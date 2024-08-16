@@ -14,7 +14,8 @@ var Ray_interact:RayCast3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
-var mouse_sens = 1
+var camera_motion := Vector2.ZERO # New variable to store both mouse and joystick input for camera movement.
+var mouse_sens = 0.5 
 
 @onready var camera_pivot: Node3D = $CameraPivot
 
@@ -26,7 +27,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
-	handle_camera_rotation()
+	handle_camera_rotation(delta)
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -75,13 +76,27 @@ func _physics_process(delta):
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			mouse_motion = -event.relative * 0.001
+			# Accumulate mouse motion into camera_motion
+			camera_motion -= event.relative * mouse_sens
 
-func handle_camera_rotation() -> void:
-	rotate_y(mouse_motion.x*mouse_sens)
-	camera_pivot.rotate_x(mouse_motion.y*mouse_sens)
+func _process(delta: float) -> void:
+	_controller_rotation(delta)
+	
+func _controller_rotation(delta: float) -> void:
+	var horizontal: float = Input.get_axis("rotate_right", "rotate_left")
+	var vertical: float = Input.get_axis("rotate_down", "rotate_up")
+	
+	if horizontal == 0 and vertical == 0: return # Early exit if both 0
+	camera_motion.x += horizontal
+	camera_motion.y += vertical 
+	
+func handle_camera_rotation(delta) -> void:
+	# Apply accumulated camera motion
+	rotate_y(camera_motion.x * delta)
+	camera_pivot.rotate_x(camera_motion.y * delta)
 	camera_pivot.rotation_degrees.x = clampf(camera_pivot.rotation_degrees.x, -89.0, 89.0)
-	mouse_motion = Vector2.ZERO
+	# Reset camera_motion for the next frame
+	camera_motion = Vector2.ZERO
 	
 func set_night_mode(b:bool) -> void:
 	$CameraPivot/SubViewportContainer/SubViewport/OpWorldTexture.visible = b
