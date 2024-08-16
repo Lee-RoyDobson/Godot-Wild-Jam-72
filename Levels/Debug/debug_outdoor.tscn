@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=3 uid="uid://bfka5h0uqk4dy"]
+[gd_scene load_steps=218 format=3 uid="uid://bfka5h0uqk4dy"]
 
 [ext_resource type="Environment" uid="uid://bapdevni80imc" path="res://Resources/Enviroments/RefinedEnviromentHigh.tres" id="1_3xpr5"]
 [ext_resource type="PackedScene" uid="uid://5v0bi5snkrwi" path="res://Scenes/skybox_switcher.tscn" id="2_q0l46"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="16_5u3yl"]
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="17_wx5bj"]
 [ext_resource type="PackedScene" uid="uid://ctj17t7qcbvhx" path="res://Scenes/Mechanics/Interactables/TimerPropNode1a.tscn" id="18_u6cyq"]
-[ext_resource type="PackedScene" uid="uid://y8lek848pkmk" path="res://Scenes/SetDressing/cat_demo.tscn" id="19_4ldwp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32vtk"]
 sky_cover = ExtResource("3_1kwt5")
@@ -1347,6 +1346,3 @@ metadata/NoPodium = true
 
 [node name="Timer_node" parent="MovingPlatform" instance=ExtResource("18_u6cyq")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
-
-[node name="CatDemo" parent="." instance=ExtResource("19_4ldwp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29525, -1, 2.43839)

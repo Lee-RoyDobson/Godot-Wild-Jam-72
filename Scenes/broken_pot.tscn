@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://cusmssvli6tbt"]
-
-[ext_resource type="PackedScene" uid="uid://bqgwt1mkb7gsw" path="res://Blender files/BrokenPot.glb" id="1_7weaj"]
-[ext_resource type="Script" path="res://Scripts/BrokenPot.gd" id="2_0x8qh"]
-
-[node name="BrokenPot" instance=ExtResource("1_7weaj")]
-script = ExtResource("2_0x8qh")
