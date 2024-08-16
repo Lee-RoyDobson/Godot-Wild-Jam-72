@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://d35f53noudmqs"]
+[gd_scene load_steps=13 format=3 uid="uid://d35f53noudmqs"]
 
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="1_53gld"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="2_56834"]
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="3_p74du"]
 [ext_resource type="PackedScene" uid="uid://jc0m3ejeo50l" path="res://Scenes/Mechanics/Interactables/ButtonPropNode1a.tscn" id="4_ud8up"]
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="5_53elq"]
+[ext_resource type="PackedScene" uid="uid://cusmssvli6tbt" path="res://Scenes/broken_pot.tscn" id="6_yvrqb"]
+[ext_resource type="PackedScene" uid="uid://ti5a6okgsvyb" path="res://BrokenPot-test.tscn" id="7_fxlo4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vio4r"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -119,3 +121,9 @@ Signal_Ref = NodePath("Button_node")
 metadata/NoPodium = true
 
 [node name="Button_node" parent="MovingPlatform2" instance=ExtResource("4_ud8up")]
+
+[node name="BrokenPot" parent="." instance=ExtResource("6_yvrqb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45941, 4.5278, 4.20585)
+
+[node name="BrokenPot2" parent="." instance=ExtResource("7_fxlo4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.573125, 4.5278, 4.20585)
