@@ -1,0 +1,24 @@
+// Game: WildJam72
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+( -32 0 0 ) ( -32 1 0 ) ( -32 0 1 ) CarpetTexture1 -64 32 0 1 1
+( -32 0 0 ) ( -32 0 1 ) ( -31 0 0 ) CarpetTexture1 -32 32 0 1 1
+( -32 0 0 ) ( -31 0 0 ) ( -32 1 0 ) CarpetTexture1 -32 64 0 1 1
+( 0 144 16 ) ( 0 145 16 ) ( 1 144 16 ) CarpetTexture1 -32 64 0 1 1
+( 0 144 16 ) ( 1 144 16 ) ( 0 144 17 ) CarpetTexture1 -32 32 0 1 1
+( 0 144 16 ) ( 0 144 17 ) ( 0 145 16 ) CarpetTexture1 -64 32 0 1 1
+}
+// brush 1
+{
+( 0 0 0 ) ( 0 1 0 ) ( 0 0 1 ) PlankTexture1 0 0 0 0.125 0.125
+( 0 0 0 ) ( 0 0 1 ) ( 1 0 0 ) PlankTexture1 0 0 0 0.125 0.125
+( 0 0 0 ) ( 1 0 0 ) ( 0 1 0 ) PlankTexture1 0 0 0 0.125 0.125
+( 16 144 16 ) ( 16 145 16 ) ( 17 144 16 ) PlankTexture1 0 0 0 0.125 0.125
+( 16 144 16 ) ( 17 144 16 ) ( 16 144 17 ) PlankTexture1 0 0 0 0.125 0.125
+( 96 144 16 ) ( 96 144 17 ) ( 96 145 16 ) PlankTexture1 0 0 0 0.125 0.125
+}
+}

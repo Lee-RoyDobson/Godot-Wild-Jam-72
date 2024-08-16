@@ -5,12 +5,15 @@ shader_type canvas_item;
 // 0: bypass
 uniform float color_depth: hint_range(0, 32, 8) = 24;
 
+uniform bool invert = false;
+
 uniform sampler2D dithering_pattern_texture:
 	hint_default_white, repeat_enable, filter_nearest;
 
 void fragment()
 {
-	vec3 base_color = texture(TEXTURE, UV).rgb;
+	vec2 uv = UV;
+	vec3 base_color = texture(TEXTURE, uv).rgb;
 
 	if (color_depth > 0.0)
 	{

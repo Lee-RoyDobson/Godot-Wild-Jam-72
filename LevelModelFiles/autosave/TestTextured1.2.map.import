@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dtslh4rwctbk5"
+path="res://.godot/imported/TestTextured1.2.map-5b0b315e4b3b6f30dae2da4fd051ff80.tres"
+
+[deps]
+
+source_file="res://LevelModelFiles/autosave/TestTextured1.2.map"
+dest_files=["res://.godot/imported/TestTextured1.2.map-5b0b315e4b3b6f30dae2da4fd051ff80.tres"]
+
+[params]
+

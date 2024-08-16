@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://b0utee4mwv3eh"
+path="res://.godot/imported/LevelThreeMap.5.map-84391b3bfc4f8b0dfbc6a58b99b6dbf9.tres"
+
+[deps]
+
+source_file="res://LevelModelFiles/ThirdLevel/autosave/LevelThreeMap.5.map"
+dest_files=["res://.godot/imported/LevelThreeMap.5.map-84391b3bfc4f8b0dfbc6a58b99b6dbf9.tres"]
+
+[params]
+
