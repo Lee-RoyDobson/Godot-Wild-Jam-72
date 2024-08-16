@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_3h0nj"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_l6qpu"]
-[ext_resource type="Material" path="res://textures/PlankTexture1.tres" id="3_be7rq"]
-[ext_resource type="Material" path="res://textures/MegaBrickTexture2.tres" id="4_jurl1"]
+[ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="3_be7rq"]
+[ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_jurl1"]
 [ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="5_kdxcy"]
-[ext_resource type="Material" path="res://textures/Floor.tres" id="6_i0s28"]
+[ext_resource type="Material" uid="uid://b1rw4f48fpjkg" path="res://textures/Floor.tres" id="6_i0s28"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="7_phtdd"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="8_efl8x"]
 

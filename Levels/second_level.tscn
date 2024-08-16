@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_sbf80"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="4_22dn2"]
-[ext_resource type="Material" path="res://textures/Floor.tres" id="4_tl6nr"]
-[ext_resource type="Material" path="res://textures/PlankTexture1.tres" id="4_x2vsu"]
-[ext_resource type="Material" path="res://textures/MegaBrickTexture2.tres" id="6_dmx1h"]
-[ext_resource type="Material" path="res://textures/WallConc1.tres" id="6_n0i5q"]
-[ext_resource type="Material" path="res://textures/FoamTest.tres" id="7_8tb3x"]
+[ext_resource type="Material" uid="uid://b1rw4f48fpjkg" path="res://textures/Floor.tres" id="4_tl6nr"]
+[ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="4_x2vsu"]
+[ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="6_dmx1h"]
+[ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="6_n0i5q"]
+[ext_resource type="Material" uid="uid://bxdcujbv80ssr" path="res://textures/FoamTest.tres" id="7_8tb3x"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_83w87"]
 _surfaces = [{
