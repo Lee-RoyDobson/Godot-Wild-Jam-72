@@ -19,6 +19,7 @@ var mouse_sens = 1
 @onready var camera_pivot: Node3D = $CameraPivot
 
 func _ready() -> void:
+	set_night_mode(false)
 	if Ray_interact == null:
 		Ray_interact = $CameraPivot/SubViewportContainer/SubViewport/SmoothCamera/InteractionLine
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -81,3 +82,6 @@ func handle_camera_rotation() -> void:
 	camera_pivot.rotate_x(mouse_motion.y*mouse_sens)
 	camera_pivot.rotation_degrees.x = clampf(camera_pivot.rotation_degrees.x, -89.0, 89.0)
 	mouse_motion = Vector2.ZERO
+	
+func set_night_mode(b:bool) -> void:
+	$CameraPivot/SubViewportContainer/SubViewport/OpWorldTexture.visible = b

@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://5v0bi5snkrwi"]
+
+[ext_resource type="Texture2D" uid="uid://dt1dibirokkst" path="res://textures/SkyboxSand.png" id="1_05cc0"]
+[ext_resource type="Texture2D" uid="uid://dkkly40db4hv8" path="res://textures/SkyboxSand2.png" id="2_c53bv"]
+
+[sub_resource type="GDScript" id="GDScript_57hv4"]
+resource_name = "SkyBoxSwitcher_node"
+script/source = "extends Node
+
+var current_env:WorldEnvironment
+
+var Day:bool = true
+@export var day_sky:Sky
+@export var night_sky:Sky
+@export var day_light:DirectionalLight3D
+@export var night_light:DirectionalLight3D
+@export var Dark_mode:bool = false:
+	set(b):
+		Dark_mode = b
+		print_debug(b)
+		Day = !b
+	get:
+		return Dark_mode
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Day = !Dark_mode
+	print(get_tree().current_scene.name)
+	set_scene_type(Day)
+	current_env = find_env()
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	#DEBUG!
+	#if(Input.is_action_just_pressed(\"action_interact\")):
+		#set_scene_type(!Day)
+		#get_tree().get_nodes_in_group(\"Player\")[0].set_night_mode(!Day)
+	
+	pass
+	
+func set_scene_type(day:bool=true):
+	if(current_env != null):
+		day_light.visible = false
+		night_light.visible = false
+		var sky_ch:Sky = day_sky
+		if !day: 
+			sky_ch = night_sky 
+			night_light.visible = true
+		else: 
+			day_light.visible = true
+		current_env.environment.sky = sky_ch
+		#current_env.environment.sky.
+		#current_env.environment.
+	Day = day
+	
+func find_env():
+	for n in get_tree().current_scene.get_children():
+		if n is WorldEnvironment:
+			n.environment.setup_local_to_scene()
+			return n as WorldEnvironment
+"
+
+[node name="SkyboxSwitcher" type="Node"]
+script = SubResource("GDScript_57hv4")
+day_sky = ExtResource("1_05cc0")
+night_sky = ExtResource("2_c53bv")

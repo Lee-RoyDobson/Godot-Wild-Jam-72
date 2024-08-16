@@ -1,0 +1,18 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://bapdevni80imc"]
+
+[ext_resource type="Texture2D" uid="uid://dt1dibirokkst" path="res://textures/SkyboxSand.png" id="1_xa1v5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32vtk"]
+sky_cover = ExtResource("1_xa1v5")
+
+[sub_resource type="Sky" id="Sky_qwlxn"]
+sky_material = SubResource("ProceduralSkyMaterial_32vtk")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_qwlxn")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_min_cell_size = 12.0
