@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://brrv8n5gbkqsy"]
+
+[ext_resource type="PackedScene" uid="uid://d1e8op5nhn2e8" path="res://Blender files/PlantPot.glb" id="1_d80nf"]
+[ext_resource type="PackedScene" uid="uid://8rfsimptknka" path="res://Blender files/brain.glb" id="2_ufwap"]
+[ext_resource type="PackedScene" uid="uid://ti5a6okgsvyb" path="res://BrokenPot-test.tscn" id="3_f0d0w"]
+
+[node name="CatPlantPot" type="Node"]
+
+[node name="PlantPot" parent="." instance=ExtResource("1_d80nf")]
+
+[node name="brain" parent="PlantPot" instance=ExtResource("2_ufwap")]
+
+[node name="BrokenPot" parent="." instance=ExtResource("3_f0d0w")]
