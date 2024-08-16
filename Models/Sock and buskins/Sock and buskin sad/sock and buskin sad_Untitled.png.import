@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq4hexn0mry8e"
+uid="uid://g3ri8cxhwebo"
 path.s3tc="res://.godot/imported/sock and buskin sad_Untitled.png-7e53bf8f9044dbe67c2e2d0ed1a5a07e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3db5d400eaead4144989a630c9ee1fe9"
+"md5": "36c7630fc52199ae5c9804bc074d451d"
 }
 
 [deps]
