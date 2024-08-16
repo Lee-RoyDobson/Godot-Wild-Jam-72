@@ -9,6 +9,8 @@ class_name Player
 @export var AirAcceleration = 15.0
 @export var AirDrag = 3.5
 
+var is_on_controller:bool = false
+
 var Ray_interact:RayCast3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -23,6 +25,9 @@ func _ready() -> void:
 	if Ray_interact == null:
 		Ray_interact = $CameraPivot/SubViewportContainer/SubViewport/SmoothCamera/InteractionLine
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	#controller shite
+	Input.joy_connection_changed.connect(update_interaction_text)
 
 
 func _physics_process(delta):
@@ -33,13 +38,19 @@ func _physics_process(delta):
 
 	# Handles interaction signaling
 	if Input.is_action_just_pressed("action_interact"):
-		Ray_interact.force_raycast_update()
+		#Ray_interact.force_raycast_update()
 		if(Ray_interact.is_colliding()):
 			var Collider:Node3D = Ray_interact.get_collider()
 			print(Collider.name)
 			var tt:Interact_Node = Collider.get_parent() as Interact_Node
 			if(tt != null):
 				tt.Interact()
+	
+	var interaction_vis:bool = false
+	if Ray_interact.is_colliding(): 
+		if Ray_interact.get_collider().get_parent() as Interact_Node:
+			interaction_vis = true 
+	$CanvasLayer/InteractionText.visible = interaction_vis
 
 	# Handle jump.
 	if Input.is_action_just_pressed("action_jump") and is_on_floor():
@@ -51,7 +62,6 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(-input_dir.x, 0, input_dir.y)).normalized()
 	
 	#Acceleration and Decceleration
-	var onfloor = is_on_floor()
 	var acc_val = Acceleration 
 	if !is_on_floor(): acc_val = AirAcceleration
 	if !direction:
@@ -59,8 +69,10 @@ func _physics_process(delta):
 		if !is_on_floor(): acc_val = AirDrag
 	
 	#convert velocity to 2D plane vector to linearly move it to target velocity
-	var flat_vel:Vector2 = Vector2(get_real_velocity().x-get_platform_velocity().x,get_real_velocity().z-get_platform_velocity().z)
-	var next_flat_vel = flat_vel.move_toward(Vector2(direction.x * Speed,direction.z * Speed),acc_val*delta)
+	var fr:Vector2 = Vector2(0,0)
+	if(is_on_floor()): fr = Vector2(get_platform_velocity().x,get_platform_velocity().z)
+	var flat_vel:Vector2 = Vector2(get_real_velocity().x-fr.x,get_real_velocity().z-fr.y)
+	var next_flat_vel:Vector2 = flat_vel.move_toward(Vector2(direction.x * Speed,direction.z * Speed),acc_val*delta)
 	velocity = Vector3(next_flat_vel.x, velocity.y, next_flat_vel.y)
 	
 	#rotate with platform
@@ -85,3 +97,14 @@ func handle_camera_rotation() -> void:
 	
 func set_night_mode(b:bool) -> void:
 	$CameraPivot/SubViewportContainer/SubViewport/OpWorldTexture.visible = b
+	
+func update_interaction_text(device:int, connected:bool):
+	var text_ref:String = "Press E"
+	if device == 0 && !connected:
+		is_on_controller = false
+	else:
+		is_on_controller = true
+	if is_on_controller:
+		text_ref = "Press X"
+	$CanvasLayer/InteractionText.text = text_ref
+	pass

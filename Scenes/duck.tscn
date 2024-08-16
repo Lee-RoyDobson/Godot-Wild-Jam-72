@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwaav8bgsdntq"]
+[gd_scene load_steps=10 format=3 uid="uid://cwaav8bgsdntq"]
 
 [ext_resource type="PackedScene" uid="uid://ct2pa5jvsn6up" path="res://Models/DuckWhite.fbx" id="1_f3fn4"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_q0qhq"]
 [ext_resource type="Shader" path="res://ursc/canvas_item/dithering.gdshader" id="3_fpmif"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera_Managment_Scr.gd" id="3_w5plw"]
 [ext_resource type="Shader" path="res://ursc/canvas_item/crt_rect_sh.gdshader" id="5_fgj7b"]
+[ext_resource type="FontFile" uid="uid://bn53l10ikayya" path="res://Resources/Fonty/Malkor-Bold.ttf" id="6_y7on1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yh3y7"]
 radius = 0.202
@@ -62,7 +63,6 @@ near = 0.01
 
 [node name="InteractionLine" type="RayCast3D" parent="CameraPivot/SubViewportContainer/SubViewport/SmoothCamera" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-enabled = false
 target_position = Vector3(0, 0, 1)
 collide_with_areas = true
 
@@ -71,3 +71,32 @@ visible = false
 material = SubResource("ShaderMaterial_dtlhr")
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+offset_left = 575.0
+offset_top = 323.0
+offset_right = 577.0
+offset_bottom = 325.0
+
+[node name="InteractionText" type="Label" parent="CanvasLayer" index="1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 263.0
+offset_top = 500.0
+offset_right = -313.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0.670796, 0.322655, 0.362068, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_y7on1")
+theme_override_font_sizes/font_size = 48
+text = "Press E"
+horizontal_alignment = 1
+vertical_alignment = 2
