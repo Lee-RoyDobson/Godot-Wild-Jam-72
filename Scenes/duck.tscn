@@ -53,7 +53,7 @@ stretch = true
 handle_input_locally = false
 msaa_3d = 2
 audio_listener_enable_3d = true
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot/SubViewportContainer/SubViewport" index="0"]
@@ -73,25 +73,34 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="4"]
+follow_viewport_enabled = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
-offset_left = 575.0
-offset_top = 323.0
-offset_right = 577.0
-offset_bottom = 325.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="InteractionText" type="Label" parent="CanvasLayer" index="1"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 263.0
-offset_top = 500.0
+offset_top = 968.0
 offset_right = -313.0
-offset_bottom = -36.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0.670796, 0.322655, 0.362068, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 0.588235)
+theme_override_colors/font_shadow_color = Color(0.894118, 0.196078, 0.337255, 0.686275)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.588235)
 theme_override_constants/shadow_offset_x = 8
 theme_override_constants/shadow_offset_y = 8
 theme_override_constants/outline_size = 5

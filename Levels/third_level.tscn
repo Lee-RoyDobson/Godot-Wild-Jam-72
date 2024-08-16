@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=3 uid="uid://c4tj1p7ecl5la"]
+[gd_scene load_steps=219 format=3 uid="uid://c4tj1p7ecl5la"]
 
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="1_3ar6d"]
 [ext_resource type="Environment" uid="uid://bapdevni80imc" path="res://Resources/Enviroments/RefinedEnviromentHigh.tres" id="1_lkxd1"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dt1dibirokkst" path="res://textures/SkyboxSand.png" id="3_gw0ur"]
 [ext_resource type="Texture2D" uid="uid://dkkly40db4hv8" path="res://textures/SkyboxSand2.png" id="4_3rk71"]
 [ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="4_iw31f"]
+[ext_resource type="PackedScene" uid="uid://cfmdhqasxx8ul" path="res://Scenes/world_switcher.tscn" id="5_6od3d"]
 [ext_resource type="Material" uid="uid://djcpfknk4jjpe" path="res://textures/BrickTexture3.tres" id="5_15iy7"]
 [ext_resource type="Material" uid="uid://r736sdrjw1s" path="res://textures/MossTexture1.tres" id="6_mg4v2"]
 [ext_resource type="Material" uid="uid://isesel8wh60u" path="res://textures/MegaBrickTexture1.tres" id="7_fb2cq"]
@@ -715,6 +716,8 @@ day_sky = SubResource("Sky_qwlxn")
 night_sky = SubResource("Sky_iuyuj")
 day_light = NodePath("../DirectionalDayLight")
 night_light = NodePath("../DirectionalNightLight")
+
+[node name="WorldSwitcher" parent="." instance=ExtResource("5_6od3d")]
 
 [node name="DirectionalDayLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
