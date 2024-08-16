@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bg25dhohq4sao"]
+[gd_scene load_steps=44 format=3 uid="uid://bg25dhohq4sao"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_sbf80"]
@@ -8,6 +8,9 @@
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="6_dmx1h"]
 [ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="6_n0i5q"]
 [ext_resource type="Material" uid="uid://bxdcujbv80ssr" path="res://textures/FoamTest.tres" id="7_8tb3x"]
+[ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/dimension_machine.tscn" id="9_61m00"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/light_object.tscn" id="10_3vsgj"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/dark_object.tscn" id="10_qpesi"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_83w87"]
 _surfaces = [{
@@ -281,3 +284,13 @@ light_energy = 3.93
 light_indirect_energy = 1.789
 spot_range = 58.187
 spot_angle = 31.06
+
+[node name="DimensionMachine" parent="." instance=ExtResource("9_61m00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.47026, 0.5, 0.0179174)
+
+[node name="LightObject" parent="DimensionMachine" instance=ExtResource("10_3vsgj")]
+
+[node name="DimensionMachine2" parent="." instance=ExtResource("9_61m00")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04578, 0.5, -1.73448)
+
+[node name="DarkObject" parent="DimensionMachine2" instance=ExtResource("10_qpesi")]
