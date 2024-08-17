@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://5blbvn3b62ue"
+path="res://.godot/imported/BrokenWoodenPlatform.map-329755da9b4b7a7fbc61ecca1f58d334.tres"
+
+[deps]
+
+source_file="res://Models/BrokenWoodenPlatform/BrokenWoodenPlatform.map"
+dest_files=["res://.godot/imported/BrokenWoodenPlatform.map-329755da9b4b7a7fbc61ecca1f58d334.tres"]
+
+[params]
+

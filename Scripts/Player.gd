@@ -19,12 +19,21 @@ var mouse_sens = 0.5
 
 @onready var camera_pivot: Node3D = $CameraPivot
 
+## Enabling this defaults this level to grant player control over world switchign
+@export var player_controls_switch:bool  = false
+var world_switcher
+
 func _ready() -> void:
 	set_night_mode(false)
 	if Ray_interact == null:
 		Ray_interact = $CameraPivot/SubViewportContainer/SubViewport/SmoothCamera/InteractionLine
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	set_defautl_control()
 
+func set_defautl_control():
+	world_switcher = WorldSwitcher
+	world_switcher.set_player_control(player_controls_switch)
 
 func _physics_process(delta):
 	handle_camera_rotation(delta)
