@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpedkq7hyos31"]
 
-[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/light_object.tscn" id="1_muym6"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="1_muym6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkljm"]
 
