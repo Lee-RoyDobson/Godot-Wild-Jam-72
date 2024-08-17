@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cg7hg4gw41gqh"]
+
+[resource]
+resource_name = "Worn Up Paint.Cleanedr"
+cull_mode = 2
+albedo_color = Color(0.28024, 0, 0.906738, 1)
