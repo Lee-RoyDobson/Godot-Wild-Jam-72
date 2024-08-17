@@ -13,6 +13,8 @@ var dark_only_objects = []
 # Set this after an object is created to ensure the level gets setup
 var b_setup_level = false;
 
+var b_player_controlls_switch = false
+
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
 #	call_deferred("_post_ready")
@@ -22,16 +24,38 @@ func clear_objects():
 	light_only_objects = []
 	dark_only_objects = []
 
+## Explicitly set the player control
+func set_player_control(has_control: bool):
+	print("Setting player control: ", has_control)
+	b_player_controlls_switch = has_control
+
+## Explicitly disable the player control	
+func disable_player_control():
+	b_player_controlls_switch = false
+
+## Explicitly enable the player control
+func enable_player_control():
+	b_player_controlls_switch = true
+	
 func _setup_level():
 	# This code runs only once after the _ready() function
-	print("All initial _ready() calls are done.")
+	#print("All initial _ready() calls are done.")
 	_switch_world(b_is_light)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	_initial_setup()
+	_process_inputs()	
+
+## This runs on the frame immediately after an object registers its existence as light/dark
+func _initial_setup():
 	if b_setup_level:
 		_setup_level()
 		b_setup_level = false
+
+func _process_inputs():
+	if !b_player_controlls_switch: return	#Early exit if player doesnt have control yet
+	
 	if Input.is_action_just_pressed("toggle_world") and b_is_light:
 		switch_to_dark()
 	elif Input.is_action_just_pressed("toggle_world") and not b_is_light:
@@ -68,11 +92,11 @@ func update_objects(objects, is_light_world: bool):
 # Public method to add light only objects to the list
 func add_light_object(obj):
 	light_only_objects.append(obj)
-	print("Object added. Current list: ", light_only_objects)
+	#print("Object added. Current list: ", light_only_objects)
 	b_setup_level = true
 	
 # Public method to add light only objects to the list
 func add_dark_object(obj):
 	dark_only_objects.append(obj)
-	print("Object added. Current list: ", dark_only_objects)
+	#print("Object added. Current list: ", dark_only_objects)
 	b_setup_level = true
