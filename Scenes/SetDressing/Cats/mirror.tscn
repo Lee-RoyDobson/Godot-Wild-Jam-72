@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://baqvxtaoe4muo"]
+
+[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="1_p66bq"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="2_61ioc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ppqd6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjnpk"]
+albedo_color = Color(0.0505108, 0.0505108, 0.0505108, 1)
+
+[node name="Mirror" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("BoxMesh_ppqd6")
+skeleton = NodePath("../Mirror")
+surface_material_override/0 = SubResource("StandardMaterial3D_mjnpk")
+
+[node name="Mirror" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.101)
+script = ExtResource("1_p66bq")
+
+[node name="DarkObject" parent="Node3D/Mirror" instance=ExtResource("2_61ioc")]

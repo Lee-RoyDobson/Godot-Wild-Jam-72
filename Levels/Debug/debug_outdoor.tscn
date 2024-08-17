@@ -1,4 +1,4 @@
-[gd_scene load_steps=219 format=3 uid="uid://coad2wneoi44r"]
+[gd_scene load_steps=220 format=3 uid="uid://coad2wneoi44r"]
 
 [ext_resource type="Environment" uid="uid://bapdevni80imc" path="res://Resources/Enviroments/RefinedEnviromentHigh.tres" id="1_1pvh2"]
 [ext_resource type="PackedScene" uid="uid://5v0bi5snkrwi" path="res://Scenes/skybox_switcher.tscn" id="2_0jo35"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="17_bc15v"]
 [ext_resource type="PackedScene" uid="uid://ctj17t7qcbvhx" path="res://Scenes/Mechanics/Interactables/TimerPropNode1a.tscn" id="18_ldw8c"]
 [ext_resource type="PackedScene" uid="uid://y8lek848pkmk" path="res://Scenes/SetDressing/Cats/cat_demo.tscn" id="19_absao"]
+[ext_resource type="PackedScene" uid="uid://baqvxtaoe4muo" path="res://Scenes/SetDressing/Cats/mirror.tscn" id="20_wfi4e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32vtk"]
 sky_cover = ExtResource("3_ldohp")
@@ -706,7 +707,7 @@ _data = {
 }
 point_count = 2
 
-[node name="Third_Level" type="Node3D"]
+[node name="Debug_Outdoor_Level" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_1pvh2")
@@ -1351,3 +1352,6 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 
 [node name="CatDemo" parent="." instance=ExtResource("19_absao")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750538, 0.25, 1.90361)
+
+[node name="Mirror" parent="." instance=ExtResource("20_wfi4e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.906914, 1.60619)
