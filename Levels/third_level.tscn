@@ -1,4 +1,4 @@
-[gd_scene load_steps=218 format=3 uid="uid://c4tj1p7ecl5la"]
+[gd_scene load_steps=219 format=3 uid="uid://c4tj1p7ecl5la"]
 
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="1_3ar6d"]
 [ext_resource type="Environment" uid="uid://bapdevni80imc" path="res://Resources/Enviroments/RefinedEnviromentHigh.tres" id="1_lkxd1"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="11_4q8wx"]
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="12_xr0v3"]
 [ext_resource type="PackedScene" uid="uid://ctj17t7qcbvhx" path="res://Scenes/Mechanics/Interactables/TimerPropNode1a.tscn" id="13_oe64e"]
+[ext_resource type="PackedScene" uid="uid://dgj3ftx4q1wa1" path="res://Scenes/SetDressing/Cats/plant_pots.tscn" id="19_25n5n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32vtk"]
 sky_cover = ExtResource("3_gw0ur")
@@ -1346,3 +1347,18 @@ metadata/NoPodium = true
 
 [node name="Timer_node" parent="MovingPlatform" instance=ExtResource("13_oe64e")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="PlantPotsWithBrain" parent="." instance=ExtResource("19_25n5n")]
+transform = Transform3D(-0.589098, 0, 0.808062, 0, 1, 0, -0.808062, 0, -0.589098, 0.4964, -1.18795, 4.64654)
+
+[node name="PlantPotsWithBrain2" parent="." instance=ExtResource("19_25n5n")]
+transform = Transform3D(-0.338327, 0, -0.941028, 0, 1, 0, 0.941028, 0, -0.338327, 0.4964, -1.18795, 5.01947)
+
+[node name="PlantPotsWithBrain3" parent="." instance=ExtResource("19_25n5n")]
+transform = Transform3D(0.138551, 0, 0.990355, 0, 1, 0, -0.990355, 0, 0.138551, 0.4964, -1.18795, 5.46369)
+
+[node name="PlantPotsWithBrain4" parent="." instance=ExtResource("19_25n5n")]
+transform = Transform3D(0.461547, 0, 0.887116, 0, 1, 0, -0.887116, 0, 0.461547, 0.4964, -1.18795, 5.91591)
+
+[node name="PlantPotsWithBrain5" parent="." instance=ExtResource("19_25n5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4964, -1.18795, 6.36926)

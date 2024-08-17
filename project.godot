@@ -31,7 +31,7 @@ project/assembly_name="Godot Wild Jam 72"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/func_godot/plugin.cfg")
+enabled=PackedStringArray("res://addons/Mirror/plugin.cfg", "res://addons/func_godot/plugin.cfg")
 
 [input]
 
