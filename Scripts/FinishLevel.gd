@@ -11,13 +11,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	var world_switcher = WorldSwitcher
-	world_switcher.clear_objects()
-	
+func _on_area_3d_body_entered(body: Node3D) -> void:	
 	print(body.name)
 	if body.name != "Duck":
 		print("Not a player, ignoring")
 		return
+		
+	var world_switcher = WorldSwitcher
+	world_switcher.clear_objects()
+	
 	print("Flag reached")
 	get_tree().change_scene_to_file(next_level)

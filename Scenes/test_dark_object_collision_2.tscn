@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://qy61ekrgmgd3"]
 
-[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/dark_object.tscn" id="1_1dlg2"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="1_1dlg2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gkljm"]
 
