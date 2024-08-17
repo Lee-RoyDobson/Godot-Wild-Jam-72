@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ObjectIdenifier.gd" id="1_4av7v"]
 [ext_resource type="PackedScene" uid="uid://doutw6sdcgvne" path="res://Scenes/EditorMarkers/light_marker.tscn" id="2_pvyiq"]
 
-[node name="LightObject" type="Node"]
+[node name="LightObject" type="Node3D"]
 script = ExtResource("1_4av7v")
 
 [node name="LightMarker" parent="." instance=ExtResource("2_pvyiq")]

@@ -21,6 +21,7 @@ var b_player_controlls_switch = false
 
 #Call this just before exiting a level
 func clear_objects():
+	print("Clearing objects lists")
 	light_only_objects = []
 	dark_only_objects = []
 
@@ -55,7 +56,6 @@ func _initial_setup():
 
 func _process_inputs():
 	if !b_player_controlls_switch: return	#Early exit if player doesnt have control yet
-	
 	if Input.is_action_just_pressed("toggle_world") and b_is_light:
 		switch_to_dark()
 	elif Input.is_action_just_pressed("toggle_world") and not b_is_light:
@@ -83,20 +83,26 @@ func _switch_world(b_switch_to_light: bool) -> void:
 	print("Switched to " + ("light" if b_switch_to_light else "dark") + " world.")
 	
 func update_objects(objects, is_light_world: bool):
+	print(objects)
 	for obj in objects:
+		print("toggling, ", obj.name)
 		if obj:  # Check if the object is not null
 			obj.visible = is_light_world  # Set visibility based on the mode
 			# Set process mode based on the mode
 			obj.process_mode = Node.PROCESS_MODE_INHERIT if is_light_world else Node.PROCESS_MODE_DISABLED
+		else:
+			print("Not an object")
 	
 # Public method to add light only objects to the list
 func add_light_object(obj):
 	light_only_objects.append(obj)
-	#print("Object added. Current list: ", light_only_objects)
+	print("Object added. Current list: ", light_only_objects.size())
 	b_setup_level = true
 	
 # Public method to add light only objects to the list
 func add_dark_object(obj):
+	print(" Adding dark object ", obj.name)
 	dark_only_objects.append(obj)
-	#print("Object added. Current list: ", dark_only_objects)
+	print(dark_only_objects)
+	print("Object added. Current list: ", dark_only_objects.size())
 	b_setup_level = true
