@@ -1,0 +1,15 @@
+// Game: WildJam72
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+( 0 92 1 ) ( 0 0 1 ) ( 0 0 0 ) PlankTexture1 64 160 0 0.125 0.125
+( 0 0 0 ) ( 141 18 0 ) ( 114 50 0 ) PlankTexture1 -128 -64 0 0.125 0.125
+( 114 50 1 ) ( 141 18 1 ) ( 0 0 1 ) PlankTexture1 -128 -64 0 0.125 0.125
+( 0 0 1 ) ( 141 18 1 ) ( 141 18 0 ) PlankTexture1 -128 160 0 0.125 0.125
+( 114 50 0 ) ( 114 50 1 ) ( 0 92 1 ) PlankTexture1 -128 160 0 0.125 0.125
+( 141 18 0 ) ( 141 18 1 ) ( 114 50 1 ) PlankTexture1 32 160 0 0.125 0.125
+}
+}
