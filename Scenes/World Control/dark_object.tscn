@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcbm78u2katsa"]
+
+[ext_resource type="Script" path="res://Scripts/ObjectIdenifier.gd" id="1_tnqfd"]
+[ext_resource type="PackedScene" uid="uid://cw6rxmd8kc6ql" path="res://Scenes/EditorMarkers/dark_marker.tscn" id="2_5ot1m"]
+
+[node name="DarkObject" type="Node"]
+script = ExtResource("1_tnqfd")
+world_type = 1
+
+[node name="DarkMarker" parent="." instance=ExtResource("2_5ot1m")]
