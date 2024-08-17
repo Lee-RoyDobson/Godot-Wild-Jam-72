@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgj3ftx4q1wa1"]
+
+[ext_resource type="Texture2D" uid="uid://bmc4wnjka62qd" path="res://Blender files/PlantPot/PotTexture.png" id="1_jsf34"]
+[ext_resource type="ArrayMesh" uid="uid://coxl1kqq8lxj4" path="res://Blender files/PlantPot/PlantPots_Mesh.res" id="2_vx2qt"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="3_uw58g"]
+[ext_resource type="PackedScene" uid="uid://8rfsimptknka" path="res://Blender files/PlantPot/brain.glb" id="4_uc1kn"]
+[ext_resource type="Texture2D" uid="uid://dg7v0p043rrpq" path="res://Blender files/PlantPot/PotTexture-BrokenStatic.png" id="5_q7h6h"]
+[ext_resource type="ArrayMesh" uid="uid://bunf3diqhr64r" path="res://Blender files/PlantPot/PlantPots_Mesh_001.res" id="6_v5q5o"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="7_36n1e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cifd5"]
+albedo_texture = ExtResource("1_jsf34")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cfu5r"]
+albedo_texture = ExtResource("5_q7h6h")
+
+[node name="PlantPotsWithBrain" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_cifd5")
+mesh = ExtResource("2_vx2qt")
+
+[node name="LightObject" parent="MeshInstance3D" instance=ExtResource("3_uw58g")]
+
+[node name="brain" parent="MeshInstance3D" instance=ExtResource("4_uc1kn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0664669, 0)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_cfu5r")
+mesh = ExtResource("6_v5q5o")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="DarkObject" parent="MeshInstance3D2" instance=ExtResource("7_36n1e")]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1e8op5nhn2e8"
-path="res://.godot/imported/PlantPot.glb-7b8c0d49b0eec6040e2db30e34acab07.scn"
+uid="uid://c8h4sry76yw88"
+path="res://.godot/imported/marker.glb-09894812379e34fe63b8144d9add44e1.scn"
 
 [deps]
 
-source_file="res://Blender files/PlantPot.glb"
-dest_files=["res://.godot/imported/PlantPot.glb-7b8c0d49b0eec6040e2db30e34acab07.scn"]
+source_file="res://Blender files/Marker/marker.glb"
+dest_files=["res://.godot/imported/marker.glb-09894812379e34fe63b8144d9add44e1.scn"]
 
 [params]
 
@@ -30,10 +30,16 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
-"materials": {
-"Clay01": {
-"use_external/enabled": true,
-"use_external/path": "res://Blender files/Clay01.tres"
+"meshes": {
+"marker_Sphere": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Blender files/marker_Sphere.res"
 }
 }
 }

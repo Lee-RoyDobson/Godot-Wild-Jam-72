@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://8rfsimptknka"
-path="res://.godot/imported/brain.glb-ea5b8e2db45908e8959d0211e3b57e92.scn"
+uid="uid://dj1ngk3auowbl"
+path="res://.godot/imported/PlantPotWithBrain.glb-9d26f8452cafe951a2afc521cb634808.scn"
 
 [deps]
 
-source_file="res://Blender files/brain.glb"
-dest_files=["res://.godot/imported/brain.glb-ea5b8e2db45908e8959d0211e3b57e92.scn"]
+source_file="res://Blender files/PlantPot/PlantPotWithBrain.glb"
+dest_files=["res://.godot/imported/PlantPotWithBrain.glb-9d26f8452cafe951a2afc521cb634808.scn"]
 
 [params]
 

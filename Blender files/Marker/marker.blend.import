@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctorsr8yf3lpt"
-path="res://.godot/imported/Exit Pedastal.blend-93fe31d136a8ad5a3b530c12d8df44fd.scn"
+uid="uid://835ne2tljcmx"
+path="res://.godot/imported/marker.blend-7f35526f83731fefa88271b90179b2f6.scn"
 
 [deps]
 
-source_file="res://Blender files/Exit Pedastal.blend"
-dest_files=["res://.godot/imported/Exit Pedastal.blend-93fe31d136a8ad5a3b530c12d8df44fd.scn"]
+source_file="res://Blender files/Marker/marker.blend"
+dest_files=["res://.godot/imported/marker.blend-7f35526f83731fefa88271b90179b2f6.scn"]
 
 [params]
 

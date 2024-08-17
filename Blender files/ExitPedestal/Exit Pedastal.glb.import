@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dj1ngk3auowbl"
-path="res://.godot/imported/PlantPotWithBrain.glb-030cbc61522154e0cfff4d872c75761c.scn"
+uid="uid://dgiqd6dsni8lh"
+path="res://.godot/imported/Exit Pedastal.glb-6df1160f3d401ec9ca09b1b2719e8c22.scn"
 
 [deps]
 
-source_file="res://Blender files/PlantPotWithBrain.glb"
-dest_files=["res://.godot/imported/PlantPotWithBrain.glb-030cbc61522154e0cfff4d872c75761c.scn"]
+source_file="res://Blender files/ExitPedestal/Exit Pedastal.glb"
+dest_files=["res://.godot/imported/Exit Pedastal.glb-6df1160f3d401ec9ca09b1b2719e8c22.scn"]
 
 [params]
 

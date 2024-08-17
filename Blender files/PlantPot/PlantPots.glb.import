@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c8h4sry76yw88"
-path="res://.godot/imported/marker.glb-d6fa0226772f3ac21864d5b68225d01a.scn"
+uid="uid://cnq4518vhj2xl"
+path="res://.godot/imported/PlantPots.glb-95422018222e8e364657db739737cd68.scn"
 
 [deps]
 
-source_file="res://Blender files/marker.glb"
-dest_files=["res://.godot/imported/marker.glb-d6fa0226772f3ac21864d5b68225d01a.scn"]
+source_file="res://Blender files/PlantPot/PlantPots.glb"
+dest_files=["res://.godot/imported/PlantPots.glb-95422018222e8e364657db739737cd68.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
-"marker_Sphere": {
+"PlantPots_Mesh": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -39,7 +39,17 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://Blender files/marker_Sphere.res"
+"save_to_file/path": "res://Blender files/PlantPot/PlantPots_Mesh.res"
+},
+"PlantPots_Mesh_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://Blender files/PlantPot/PlantPots_Mesh_001.res"
 }
 }
 }
