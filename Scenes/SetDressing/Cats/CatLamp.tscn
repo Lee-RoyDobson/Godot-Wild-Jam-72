@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsthad7g535px"]
+
+[ext_resource type="PackedScene" uid="uid://dmsr7ifw8p0kw" path="res://Scenes/SetDressing/lamp.tscn" id="1_48xgt"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="2_x76l8"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="3_n34bd"]
+
+[node name="CatLamp" type="Node3D"]
+
+[node name="LightLamp" parent="." instance=ExtResource("1_48xgt")]
+
+[node name="DarkObject" parent="LightLamp" instance=ExtResource("3_n34bd")]
+
+[node name="DarkLamp" parent="." instance=ExtResource("1_48xgt")]
+
+[node name="SpotLight3D" parent="DarkLamp" index="1"]
+light_negative = true
+
+[node name="LightObject" parent="DarkLamp" instance=ExtResource("2_x76l8")]
+
+[editable path="LightLamp"]
+[editable path="DarkLamp"]
