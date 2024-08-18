@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds73eflujaaoe"]
+
+[ext_resource type="PackedScene" uid="uid://dki71yuplaeg0" path="res://Levels/fourth_level/fourth_level_template.tscn" id="1_kpu3r"]
+[ext_resource type="PackedScene" uid="uid://dgj3ftx4q1wa1" path="res://Scenes/SetDressing/Cats/plant_pots.tscn" id="2_25j7r"]
+
+[node name="FourthLevel" instance=ExtResource("1_kpu3r")]
+
+[node name="FinishFlag4" parent="Doors/ominous-door4" index="2"]
+next_level = "res://Levels/fourth_level/fourth_level_c.tscn"
+
+[node name="PlantPotsWithBrain" parent="." index="11" instance=ExtResource("2_25j7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44611, 0.53125, -4.94982)
+
+[node name="PlantPotsWithBrain2" parent="." index="12" instance=ExtResource("2_25j7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44611, 0.53125, -4.43889)
+
+[editable path="Doors/ominous-door/FinishFlag"]
+[editable path="Doors/ominous-door2/FinishFlag2"]
+[editable path="Doors/ominous-door3/FinishFlag3"]
+[editable path="Doors/ominous-door4/FinishFlag4"]
+[editable path="Barrels/lamp"]
+[editable path="Barrels/CatLamp"]
+[editable path="Barrels/CatLamp/LightLamp"]
+[editable path="Barrels/CatLamp/DarkLamp"]
