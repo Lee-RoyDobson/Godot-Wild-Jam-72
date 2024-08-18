@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://da7e6h7iykcv7"
+path="res://.godot/imported/FifthLevel.map-9a26f75afd6f136ace32a0e5ce9f5ac0.tres"
+
+[deps]
+
+source_file="res://LevelModelFiles/FifthLevel/FifthLevel.map"
+dest_files=["res://.godot/imported/FifthLevel.map-9a26f75afd6f136ace32a0e5ce9f5ac0.tres"]
+
+[params]
+

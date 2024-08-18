@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dva8bq65aa70r"]
+
+[ext_resource type="ArrayMesh" uid="uid://coxl1kqq8lxj4" path="res://Blender files/PlantPot/PlantPots_Mesh.res" id="1_737cx"]
+[ext_resource type="Texture2D" uid="uid://bmc4wnjka62qd" path="res://Blender files/PlantPot/PotTexture.png" id="1_px5wj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w8ysk"]
+rough = true
+absorbent = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4fdxb"]
+height = 0.1
+radius = 0.12
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25xfd"]
+albedo_texture = ExtResource("1_px5wj")
+
+[node name="Plant Pot" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_w8ysk")
+lock_rotation = true
+max_contacts_reported = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0404041, 0)
+shape = SubResource("CylinderShape3D_4fdxb")
+
+[node name="PlantPotsMesh" type="MeshInstance3D" parent="RigidBody3D"]
+material_override = SubResource("StandardMaterial3D_25xfd")
+mesh = ExtResource("1_737cx")
+skeleton = NodePath("../..")

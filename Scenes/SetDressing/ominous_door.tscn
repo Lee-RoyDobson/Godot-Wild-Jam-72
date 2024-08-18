@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://rgapqvwxr7vl"]
+
+[ext_resource type="PackedScene" uid="uid://rtoxi7yo7no1" path="res://Blender files/Door/ominous-door.glb" id="1_g35xo"]
+[ext_resource type="Texture2D" uid="uid://cmepvua0168y0" path="res://Blender files/Door/ominous-door_baked-diffuse.png" id="2_fy7dg"]
+[ext_resource type="Texture2D" uid="uid://d0yx2onc8rmup" path="res://Blender files/Door/ominous-door_Metal05_col.jpg" id="3_7332d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm0n7"]
+albedo_texture = ExtResource("2_fy7dg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtmwh"]
+albedo_texture = ExtResource("3_7332d")
+albedo_texture_msdf = true
+
+[node name="ominous-door" instance=ExtResource("1_g35xo")]
+
+[node name="Door_Gate" parent="." index="1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qm0n7")
+surface_material_override/0 = SubResource("StandardMaterial3D_dtmwh")

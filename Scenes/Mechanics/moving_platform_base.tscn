@@ -4,8 +4,8 @@
 
 [sub_resource type="Curve3D" id="Curve3D_uig4n"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2),
-"tilts": PackedFloat32Array(-2.61799, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.104142, 0.0785962, 1.00952),
+"tilts": PackedFloat32Array(-2.61799, -2.81525)
 }
 point_count = 2
 
@@ -159,7 +159,7 @@ script = SubResource("GDScript_ysjc2")
 metadata/NoPodium = false
 
 [node name="PathFollow3D" type="PathFollow3D" parent="."]
-transform = Transform3D(0.866021, -0.500002, 7.57102e-08, -0.500002, -0.866021, -4.37117e-08, 8.74225e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(0.865411, -0.490501, -0.102309, -0.498509, -0.863436, -0.0772128, -0.0504644, 0.117823, -0.991751, 0, 0, 0)
 loop = false
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="PathFollow3D"]
