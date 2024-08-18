@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://cksoi11gwe5gb"
+path="res://.godot/imported/FinalLevel.map-7686a6dc38e5f3d058a2bbf3b402240b.tres"
+
+[deps]
+
+source_file="res://LevelModelFiles/FinalLevel/FinalLevel.map"
+dest_files=["res://.godot/imported/FinalLevel.map-7686a6dc38e5f3d058a2bbf3b402240b.tres"]
+
+[params]
+

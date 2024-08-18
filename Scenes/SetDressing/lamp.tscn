@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmsr7ifw8p0kw"]
+
+[ext_resource type="PackedScene" uid="uid://cpiyr7cimtx25" path="res://Blender files/Lamp/lamp.glb" id="1_n3vg0"]
+
+[node name="lamp" instance=ExtResource("1_n3vg0")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.315328, 0)
+light_color = Color(0.879314, 0.815173, 0.551597, 1)
+light_energy = 4.0
+light_indirect_energy = 4.0
+distance_fade_enabled = true
+spot_range = 10.0
+spot_attenuation = 0.5
+spot_angle = 40.0

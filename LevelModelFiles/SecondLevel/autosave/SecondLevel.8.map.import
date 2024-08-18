@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dh7f2lpyyh2y7"
+path="res://.godot/imported/SecondLevel.8.map-f2d5d68db5a9d7de5aa22aea6b096440.tres"
+
+[deps]
+
+source_file="res://LevelModelFiles/SecondLevel/autosave/SecondLevel.8.map"
+dest_files=["res://.godot/imported/SecondLevel.8.map-f2d5d68db5a9d7de5aa22aea6b096440.tres"]
+
+[params]
+

@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsthad7g535px"]
+
+[ext_resource type="PackedScene" uid="uid://dmsr7ifw8p0kw" path="res://Scenes/SetDressing/lamp.tscn" id="1_48xgt"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="2_x76l8"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="3_n34bd"]
+
+[node name="CatLamp" type="Node3D"]
+
+[node name="LightLamp" parent="." instance=ExtResource("1_48xgt")]
+
+[node name="SpotLight3D" parent="LightLamp" index="1"]
+spot_angle_attenuation = 1.0
+
+[node name="LightObject" parent="LightLamp" instance=ExtResource("2_x76l8")]
+
+[node name="DarkLamp" parent="." instance=ExtResource("1_48xgt")]
+
+[node name="SpotLight3D Light" type="SpotLight3D" parent="DarkLamp"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.315328, 0)
+light_color = Color(0.505701, 0.726729, 0.967284, 1)
+light_energy = 0.2
+light_indirect_energy = 0.4
+light_volumetric_fog_energy = 0.4
+distance_fade_enabled = true
+spot_range = 10.0
+spot_attenuation = 0.5
+spot_angle = 40.0
+
+[node name="SpotLight3D" parent="DarkLamp" index="2"]
+light_negative = true
+spot_attenuation = 1.86607
+spot_angle = 20.0
+spot_angle_attenuation = 1.0
+
+[node name="DarkObject" parent="DarkLamp" instance=ExtResource("3_n34bd")]
+
+[editable path="LightLamp"]
+[editable path="DarkLamp"]
