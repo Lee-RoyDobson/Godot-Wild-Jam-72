@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://deg0vq78hnp1o"]
+[gd_scene load_steps=52 format=3 uid="uid://deg0vq78hnp1o"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_3h0nj"]
 [ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="1_83gle"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="7_phtdd"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="8_efl8x"]
 [ext_resource type="PackedScene" uid="uid://d216o2ao1f4g8" path="res://Models/ComputerDesk/computerdesk.gltf" id="10_ay4gb"]
+[ext_resource type="Script" path="res://Levels/Timers.gd" id="12_opf0d"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="12_orlai"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5y3k"]
 albedo_texture = ExtResource("5_kdxcy")
@@ -313,8 +315,31 @@ shape = SubResource("ConvexPolygonShape3D_udcut")
 [node name="Duck" parent="." instance=ExtResource("7_phtdd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.74416, 1.00354, 0)
 
+[node name="blockbench_export5" parent="." instance=ExtResource("10_ay4gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.937, 0.537776, 4.47588)
+
+[node name="Label3D" type="Label3D" parent="blockbench_export5"]
+transform = Transform3D(-0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, 0.157798, 0.567405, -0.0816507)
+text = "Subject: Dimensional Discoveries
+
+Date: 09/08/2024
+
+With recent tests, we can confirm that we have
+discovered a way to travel between dimensions. However,
+we are currently limited to travelling to and from a world
+of darkness.
+
+The subject shows no signs of dimensional decay yet,
+but we are monitoring for unexpected flickers.
+
+We will keep you updated."
+font_size = 28
+horizontal_alignment = 0
+
 [node name="blockbench_export4" parent="." instance=ExtResource("10_ay4gb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.937, 0.537776, 4.47588)
+
+[node name="DarkObject" parent="blockbench_export4" instance=ExtResource("12_orlai")]
 
 [node name="Label3D" type="Label3D" parent="blockbench_export4"]
 transform = Transform3D(-0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, 0.157799, 0.571598, -0.0816507)
@@ -330,27 +355,6 @@ DOUCERKAYDOUCERKAYDOUCERKAYDOUCERKAYDOUC
 ERKAYDOUCERKAYDOUCERKAYDOUCERKAYDOUCERKAY
 DOUCERKAYDOUCERKAYDOUCERKAYDOUCERKAYDOUC
 ERKAYDOUCERKAYDOUCERKAYDOUCERKAYDOUCERKAY"
-font_size = 28
-horizontal_alignment = 0
-
-[node name="blockbench_export4" parent="blockbench_export4" instance=ExtResource("10_ay4gb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
-
-[node name="Label3D" type="Label3D" parent="blockbench_export4/blockbench_export4"]
-transform = Transform3D(-0.05, 0, -7.54979e-09, 0, 0.05, 0, 7.54979e-09, 0, -0.05, 0.157798, 0.567405, -0.0816507)
-text = "Subject: Dimensional Discoveries
-
-Date: 09/08/2024
-
-With recent tests, we can confirm that we have
-discovered a way to travel between dimensions. However,
-we are currently limited to travelling to and from a world
-of darkness.
-
-The subject shows no signs of dimensional decay yet,
-but we are monitoring for unexpected flickers.
-
-We will keep you updated."
 font_size = 28
 horizontal_alignment = 0
 
@@ -393,6 +397,8 @@ BEWAR"
 font_size = 28
 horizontal_alignment = 0
 
+[node name="DarkObject" parent="blockbench_export2" instance=ExtResource("12_orlai")]
+
 [node name="blockbench_export" parent="." instance=ExtResource("10_ay4gb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.6307, 0.527513, 13.3698)
 
@@ -422,5 +428,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5691, 6.50169, -4.24334)
 
 [node name="CatLamp3" parent="." instance=ExtResource("1_83gle")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.531, 6.39453, 8.42952)
+
+[node name="Timers" type="Node" parent="."]
+script = ExtResource("12_opf0d")
+
+[node name="Timer" type="Timer" parent="Timers"]
+wait_time = 3.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="Timers"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timers/Timer" to="Timers" method="to_light"]
+[connection signal="timeout" from="Timers/Timer2" to="Timers" method="toggle_dimension"]
 
 [editable path="FinishFlag"]
