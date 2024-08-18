@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://o3pqqw3qnljy"]
+
+[ext_resource type="Texture2D" uid="uid://b4g526bhv72du" path="res://UI/SockAndBuskinUIImages/SockSadUI.png" id="1_j4qdb"]
+
+[node name="UiOverlayGameplayDark" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -301.0
+offset_top = -301.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_j4qdb")
+expand_mode = 1
