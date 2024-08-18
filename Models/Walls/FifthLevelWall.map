@@ -1,0 +1,15 @@
+// Game: WildJam72
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+// brush 0
+{
+( 0 0 0 ) ( 0 1 0 ) ( 0 0 1 ) MegaBrickTexture2 -8 0 0 0.125 0.125
+( 0 0 0 ) ( 0 0 1 ) ( 1 0 0 ) MegaBrickTexture2 -56 0 0 0.125 0.125
+( 0 0 0 ) ( 1 0 0 ) ( 0 1 0 ) MegaBrickTexture2 -56 8 0 0.125 0.125
+( 1 90 87 ) ( 1 91 87 ) ( 2 90 87 ) MegaBrickTexture2 -56 8 0 0.125 0.125
+( 1 90 1 ) ( 2 90 1 ) ( 1 90 2 ) MegaBrickTexture2 -56 0 0 0.125 0.125
+( 1 90 1 ) ( 1 90 2 ) ( 1 91 1 ) MegaBrickTexture2 -8 0 0 0.125 0.125
+}
+}
