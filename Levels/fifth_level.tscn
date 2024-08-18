@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://oxrwjvw4ngne"]
+[gd_scene load_steps=41 format=3 uid="uid://oxrwjvw4ngne"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_7aa5k"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_4qs6j"]
@@ -12,8 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://ctj17t7qcbvhx" path="res://Scenes/Mechanics/Interactables/TimerPropNode1a.tscn" id="8_2wn7d"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="8_5c7oi"]
 [ext_resource type="Material" uid="uid://bxdcujbv80ssr" path="res://textures/FoamTest.tres" id="8_vi22s"]
-[ext_resource type="PackedScene" uid="uid://dmsr7ifw8p0kw" path="res://Scenes/SetDressing/lamp.tscn" id="13_eqkhe"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_4xsep"]
+[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayDark.tscn" id="15_6qa2s"]
+[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayLight.tscn" id="16_nh2lj"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="16_t1tb1"]
+[ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="18_y2qsd"]
+[ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="19_r57ij"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vvs73"]
 _surfaces = [{
@@ -161,6 +165,17 @@ points = PackedVector3Array(0, 2.71875, 0, 0, 0, 0, 2.8125, 0, 0, 2.8125, 2.7187
 
 [node name="FifthLevel" type="Node3D"]
 
+[node name="LightAndEnvironment" parent="." instance=ExtResource("19_r57ij")]
+
+[node name="CatLamp" parent="." instance=ExtResource("18_y2qsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33015, 2.71348, 2.91737)
+
+[node name="CatLamp2" parent="." instance=ExtResource("18_y2qsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33015, 4.97276, 5.73024)
+
+[node name="CatLamp3" parent="." instance=ExtResource("18_y2qsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33015, 4.97276, 2.03628)
+
 [node name="DimensionMachine" parent="." instance=ExtResource("6_5t4nr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36547, 0.0533413, 2.75879)
 
@@ -263,20 +278,19 @@ shape = SubResource("ConvexPolygonShape3D_wksy8")
 
 [node name="LightObject" parent="FuncGodotMap2" instance=ExtResource("8_5c7oi")]
 
-[node name="lamp" parent="." instance=ExtResource("13_eqkhe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44089, 2.75266, 2.27259)
-
-[node name="lamp2" parent="." instance=ExtResource("13_eqkhe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39778, 5.00699, 5.70903)
-
-[node name="lamp3" parent="." instance=ExtResource("13_eqkhe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39778, 5.00699, 1.92051)
-
 [node name="FinishFlag" parent="." instance=ExtResource("14_4xsep")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38169, 2.71052, -0.588756)
 next_level = "res://Levels/final_level.tscn"
 
 [node name="Exit Pedastal" parent="FinishFlag" index="1"]
 visible = false
+
+[node name="UiOverlayGameplayDark" parent="." instance=ExtResource("15_6qa2s")]
+
+[node name="DarkObject" parent="UiOverlayGameplayDark" instance=ExtResource("16_t1tb1")]
+
+[node name="UiOverlayGameplayLight" parent="." instance=ExtResource("16_nh2lj")]
+
+[node name="LightObject" parent="UiOverlayGameplayLight" instance=ExtResource("8_5c7oi")]
 
 [editable path="FinishFlag"]
