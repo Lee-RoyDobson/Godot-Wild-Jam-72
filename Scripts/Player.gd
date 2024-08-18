@@ -9,6 +9,7 @@ class_name Player
 @export var AirAcceleration = 15.0
 @export var AirDrag = 3.5
 
+
 var Ray_interact:RayCast3D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -18,6 +19,7 @@ var camera_motion := Vector2.ZERO # New variable to store both mouse and joystic
 var mouse_sens = 0.5 
 
 @onready var camera_pivot: Node3D = $CameraPivot
+@onready var audio_dimension_switch = $DimensionSwitch
 
 ## Enabling this defaults this level to grant player control over world switchign
 @export var player_controls_switch:bool  = false
@@ -109,3 +111,6 @@ func handle_camera_rotation(delta) -> void:
 	
 func set_night_mode(b:bool) -> void:
 	$CameraPivot/SubViewportContainer/SubViewport/OpWorldTexture.visible = b
+
+func play_dimension_switch() -> void:
+	audio_dimension_switch.play(0)

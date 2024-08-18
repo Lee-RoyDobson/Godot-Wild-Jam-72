@@ -115,6 +115,7 @@ points = PackedVector3Array(0.03125, 0.0625, 0.0625296, 0.03125, 0.03125, 0.0625
 script = ExtResource("1_b13ms")
 
 [node name="Area3D" type="Area3D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0252075, 0.505537, 0.75178)

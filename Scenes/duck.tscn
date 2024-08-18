@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwaav8bgsdntq"]
+[gd_scene load_steps=11 format=3 uid="uid://cwaav8bgsdntq"]
 
 [ext_resource type="PackedScene" uid="uid://ct2pa5jvsn6up" path="res://Models/DuckWhite.fbx" id="1_f3fn4"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2_q0qhq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="3_scgpl"]
 [ext_resource type="Script" path="res://Scripts/Player/Camera_Managment_Scr.gd" id="3_w5plw"]
 [ext_resource type="Shader" path="res://ursc/canvas_item/crt_rect_sh.gdshader" id="5_fgj7b"]
+[ext_resource type="AudioStream" uid="uid://ddgi4mnb4n5kf" path="res://Sounds/Effects/DimensionChange.wav" id="7_fxpv2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yh3y7"]
 radius = 0.202
@@ -23,6 +24,7 @@ shader_parameter/color = Color(0.352941, 0.462745, 0.129412, 1)
 shader_parameter/strength = 0.25
 
 [node name="Duck" groups=["Player"] instance=ExtResource("1_f3fn4")]
+collision_layer = 2
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 script = ExtResource("2_q0qhq")
@@ -43,7 +45,8 @@ omni_range = 2.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.275, 0)
 
 [node name="DuckWhite_001" parent="RootNode" index="0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0847039)
+layers = 2
 
 [node name="DarkObject" parent="RootNode/DuckWhite_001" index="0" instance=ExtResource("3_scgpl")]
 
@@ -70,7 +73,7 @@ size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="SmoothCamera" type="Camera3D" parent="CameraPivot/SubViewportContainer/SubViewport" index="0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.290399, -0.000267133)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0.404869, -0.000267133)
 current = true
 near = 0.01
 
@@ -85,3 +88,7 @@ visible = false
 material = SubResource("ShaderMaterial_dtlhr")
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="DimensionSwitch" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource("7_fxpv2")
+volume_db = -12.0
