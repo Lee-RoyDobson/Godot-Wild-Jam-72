@@ -69,13 +69,17 @@ func switch_to_light() -> void:
 	_switch_world(b_is_light)
 	AmbientSound.play_light()
 	
-
 func switch_to_dark() -> void:
 	b_is_light = false
 	_switch_world(b_is_light)
 	AmbientSound.play_dark()
 	
-
+func toggle_world() -> void:
+	if b_is_light:
+		switch_to_dark()
+	else:
+		switch_to_light()
+		
 func _switch_world(b_switch_to_light: bool) -> void:
 	# Update light-only objects
 	call_deferred("update_objects", light_only_objects, b_switch_to_light)
