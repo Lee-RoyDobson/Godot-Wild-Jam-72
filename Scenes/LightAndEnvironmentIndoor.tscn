@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv871yrmnujbt"]
+
+[ext_resource type="Texture2D" uid="uid://dt1dibirokkst" path="res://textures/SkyboxSand.png" id="1_1ul8l"]
+[ext_resource type="PackedScene" uid="uid://5v0bi5snkrwi" path="res://Scenes/skybox_switcher.tscn" id="2_s4l1o"]
+[ext_resource type="Texture2D" uid="uid://dkkly40db4hv8" path="res://textures/SkyboxSand2.png" id="3_ynsn2"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="4_b5sax"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="5_bw0t3"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tyvbj"]
+sky_cover = ExtResource("1_1ul8l")
+
+[sub_resource type="Sky" id="Sky_3yw23"]
+sky_material = SubResource("ProceduralSkyMaterial_tyvbj")
+
+[sub_resource type="Environment" id="Environment_xvpsm"]
+background_mode = 2
+background_energy_multiplier = 0.2
+sky = SubResource("Sky_3yw23")
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+sdfgi_min_cell_size = 12.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32vtk"]
+sky_cover = ExtResource("1_1ul8l")
+
+[sub_resource type="Sky" id="Sky_qwlxn"]
+sky_material = SubResource("ProceduralSkyMaterial_32vtk")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wdfvy"]
+sky_cover = ExtResource("3_ynsn2")
+
+[sub_resource type="Sky" id="Sky_iuyuj"]
+sky_material = SubResource("ProceduralSkyMaterial_wdfvy")
+
+[node name="LightAndEnvironment" type="Node"]
+
+[node name="Universal Lights" type="Node" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Universal Lights"]
+environment = SubResource("Environment_xvpsm")
+
+[node name="Base Light" type="DirectionalLight3D" parent="Universal Lights"]
+transform = Transform3D(-0.790756, 0.131524, -0.597835, -0.456128, 0.524721, 0.718759, 0.408231, 0.841052, -0.354934, 0, 12.1923, 0)
+light_energy = 0.01
+light_indirect_energy = 0.01
+light_volumetric_fog_energy = 0.01
+shadow_enabled = true
+
+[node name="SkyboxSwitcher" parent="." instance=ExtResource("2_s4l1o")]
+day_sky = SubResource("Sky_qwlxn")
+night_sky = SubResource("Sky_iuyuj")
+
+[node name="DirectionalDayLight" type="DirectionalLight3D" parent="."]
+process_mode = 4
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 13.8042, 0)
+light_color = Color(1, 1, 0.788235, 1)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="LightObject" parent="DirectionalDayLight" instance=ExtResource("4_b5sax")]
+
+[node name="DirectionalNightLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.967709, 0.0437714, -0.24824, 0.156389, 0.668096, 0.727454, 0.19769, -0.742786, 0.639678, 0, 12.6448, 0)
+light_color = Color(0.459359, 0.414473, 0.995773, 1)
+light_energy = 0.3
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+
+[node name="DirectionalNightLight-Negative" type="DirectionalLight3D" parent="DirectionalNightLight"]
+transform = Transform3D(-0.950791, 0.224625, 0.213402, 0.193433, -0.107698, 0.975184, 0.242033, 0.968476, 0.058948, 0, 0, 0)
+light_color = Color(1, 1, 0.682353, 1)
+light_energy = 0.03
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_negative = true
+shadow_enabled = true
+
+[node name="DarkObject" parent="DirectionalNightLight" instance=ExtResource("5_bw0t3")]
