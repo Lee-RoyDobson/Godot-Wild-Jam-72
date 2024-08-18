@@ -21,5 +21,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mjnpk")
 [node name="Mirror" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.101)
 script = ExtResource("1_p66bq")
+MirrorColor = Color(1, 1, 1, 1)
 
 [node name="DarkObject" parent="Node3D/Mirror" instance=ExtResource("2_61ioc")]
