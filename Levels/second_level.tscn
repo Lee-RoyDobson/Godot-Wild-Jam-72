@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_xw0rc"]
 [ext_resource type="PackedScene" uid="uid://doutw6sdcgvne" path="res://Scenes/EditorMarkers/light_marker.tscn" id="16_hs1aq"]
 [ext_resource type="PackedScene" uid="uid://bul7h0qgyco8i" path="res://Scenes/Sock and buskin/sock_and_buskin_happy.tscn" id="17_5c8u3"]
-[ext_resource type="PackedScene" uid="uid://o3pqqw3qnljy" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
-[ext_resource type="PackedScene" uid="uid://dxwnlbysweg81" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
+[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
+[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qxmqq"]
 _surfaces = [{
