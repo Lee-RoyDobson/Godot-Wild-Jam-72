@@ -1,4 +1,4 @@
-[gd_scene load_steps=212 format=3 uid="uid://c4tj1p7ecl5la"]
+[gd_scene load_steps=218 format=3 uid="uid://c4tj1p7ecl5la"]
 
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="1_3ar6d"]
 [ext_resource type="PackedScene" uid="uid://cfkx3ws42poak" path="res://Scenes/LightAndEnvironmentOutdoor.tscn" id="1_bhbjn"]
@@ -15,7 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="11_4q8wx"]
 [ext_resource type="PackedScene" uid="uid://cmakjtlnv7wqi" path="res://Scenes/Mechanics/moving_platform_base.tscn" id="12_xr0v3"]
 [ext_resource type="PackedScene" uid="uid://ctj17t7qcbvhx" path="res://Scenes/Mechanics/Interactables/TimerPropNode1a.tscn" id="13_oe64e"]
+[ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="14_lj6j5"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="17_4qswy"]
 [ext_resource type="PackedScene" uid="uid://dgj3ftx4q1wa1" path="res://Scenes/SetDressing/Cats/plant_pots.tscn" id="19_25n5n"]
+[ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="19_grcw0"]
+[ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="20_nynaw"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l6n8k"]
 _surfaces = [{
@@ -691,6 +695,20 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Curve3D" id="Curve3D_bkafb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0.75, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_7kino"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="Third_Level" type="Node3D"]
 
 [node name="LightAndEnvironment" parent="." instance=ExtResource("1_bhbjn")]
@@ -1305,7 +1323,10 @@ Extra_Collision = NodePath("../LaserDoor_check")
 flipped_action = true
 
 [node name="Switch_node" parent="." instance=ExtResource("11_4q8wx")]
-transform = Transform3D(-0.75, -1.13247e-07, 4.95018e-15, 0, -3.27835e-08, -0.75, 1.13247e-07, -0.75, 3.27835e-08, 14.25, 1.5, 13.75)
+transform = Transform3D(-0.75, -1.13247e-07, 4.95018e-15, -2.93105e-08, 0.194114, -0.724444, 1.09388e-07, -0.724444, -0.194114, 6, 1.75, 16.2004)
+
+[node name="DarkObject" parent="Switch_node" instance=ExtResource("14_lj6j5")]
+transform = Transform3D(1, -2.84217e-14, -7.10543e-15, -2.84217e-14, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0, 0)
 
 [node name="MovingPlatform" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("12_xr0v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, -0.75, -1)
@@ -1315,6 +1336,34 @@ metadata/NoPodium = true
 
 [node name="Timer_node" parent="MovingPlatform" instance=ExtResource("13_oe64e")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="Timer_node_up" parent="." instance=ExtResource("13_oe64e")]
+transform = Transform3D(-3.27835e-08, 0, 0.75, 0, 0.75, 0, -0.75, 0, -3.27835e-08, 14.25, 1, 8.25)
+TimeActive = 12.0
+
+[node name="LightObject" parent="Timer_node_up" instance=ExtResource("17_4qswy")]
+transform = Transform3D(-5.82818e-08, 0, -1.33333, 0, 1.33333, 0, 1.33333, 0, -5.82818e-08, 0, 0, 0)
+
+[node name="MovingPlatform2" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("12_xr0v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 0.5, 8.25)
+curve = SubResource("Curve3D_bkafb")
+Signal_Ref = NodePath("../Timer_node_up")
+Move_Speed = 0.25
+metadata/NoPodium = true
+
+[node name="DarkObject" parent="MovingPlatform2" instance=ExtResource("14_lj6j5")]
+
+[node name="MovingPlatform3" parent="." node_paths=PackedStringArray("Signal_Ref") instance=ExtResource("12_xr0v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 9.75)
+curve = SubResource("Curve3D_7kino")
+Signal_Ref = NodePath("Timer_node")
+metadata/NoPodium = true
+
+[node name="Timer_node" parent="MovingPlatform3" instance=ExtResource("13_oe64e")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+TimeActive = 6.0
+
+[node name="DarkObject" parent="MovingPlatform3" instance=ExtResource("14_lj6j5")]
 
 [node name="PlantPotsWithBrain" parent="." instance=ExtResource("19_25n5n")]
 transform = Transform3D(-0.589098, 0, 0.808062, 0, 1, 0, -0.808062, 0, -0.589098, 0.4964, -1.18795, 4.64654)
@@ -1330,3 +1379,14 @@ transform = Transform3D(0.461547, 0, 0.887116, 0, 1, 0, -0.887116, 0, 0.461547, 
 
 [node name="PlantPotsWithBrain5" parent="." instance=ExtResource("19_25n5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4964, -1.18795, 6.36926)
+
+[node name="DimensionMachine" parent="." instance=ExtResource("19_grcw0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -1.25, 7.5)
+
+[node name="FinishFlag" parent="." instance=ExtResource("20_nynaw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15, 1, 14.75)
+
+[node name="Exit Pedastal" parent="FinishFlag" index="1"]
+visible = false
+
+[editable path="FinishFlag"]
