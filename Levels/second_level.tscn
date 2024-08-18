@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bg25dhohq4sao"]
+[gd_scene load_steps=80 format=3 uid="uid://bg25dhohq4sao"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_sbf80"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="10_3vsgj"]
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="10_qpesi"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_xw0rc"]
-[ext_resource type="PackedScene" uid="uid://iliyrl3fhi36" path="res://Models/Sock and buskins/Sock and buskin happy/sock and buskin happy.glb" id="15_6ixx5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qxmqq"]
 _surfaces = [{
@@ -551,6 +550,3 @@ shape = SubResource("ConvexPolygonShape3D_hyk3f")
 [node name="FinishFlag" parent="." instance=ExtResource("14_xw0rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26934, -0.167696, -13.1748)
 next_level = "res://Levels/third_level.tscn"
-
-[node name="sock and buskin happy" parent="." instance=ExtResource("15_6ixx5")]
-transform = Transform3D(0.0161785, 0, -0.999869, 0, 1, 0, 0.999869, 0, 0.0161785, 3.76745, -2.80649, -1.41781)
