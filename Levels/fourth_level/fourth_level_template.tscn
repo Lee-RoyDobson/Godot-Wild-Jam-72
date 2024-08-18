@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_2ta40"]
 [ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="5_2uvbd"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="6_ns04l"]
-[ext_resource type="PackedScene" path="res://Scenes/SetDressing/ominous_door.tscn" id="7_cp18y"]
+[ext_resource type="PackedScene" uid="uid://rgapqvwxr7vl" path="res://Scenes/SetDressing/ominous_door.tscn" id="7_cp18y"]
 [ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="8_01jls"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="8_ccwri"]
 [ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="10_yt6ht"]
@@ -2279,30 +2279,6 @@ mesh = ExtResource("20_8gqo3")
 
 [node name="LightObject" parent="Node3D/Stack Pair7/MeshInstance3D" instance=ExtResource("11_si34m")]
 
-[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair7"]
-
-[node name="Plant Pot" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-
-[node name="Plant Pot2" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
-
-[node name="Plant Pot3" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
-
-[node name="Plant Pot4" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
-
-[node name="Plant Pot5" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
-
-[node name="Plant Pot6" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
-
-[node name="Plant Pot7" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
-transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
-
-[node name="DarkObject" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("12_kxggg")]
-
 [node name="Stack Pair8" type="Node3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12114, 3.57628e-07, 0.478845)
 
@@ -2313,6 +2289,7 @@ mesh = ExtResource("20_8gqo3")
 [node name="LightObject" parent="Node3D/Stack Pair8/MeshInstance3D" instance=ExtResource("11_si34m")]
 
 [node name="Stack77" type="Node3D" parent="Node3D/Stack Pair8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.107514)
 
 [node name="Plant Pot" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
 
