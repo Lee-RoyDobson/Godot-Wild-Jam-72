@@ -9,6 +9,7 @@ class_name Player
 @export var AirAcceleration = 15.0
 @export var AirDrag = 3.5
 
+var is_on_controller:bool = false
 
 var Ray_interact:RayCast3D
 
@@ -30,6 +31,9 @@ func _ready() -> void:
 	if Ray_interact == null:
 		Ray_interact = $CameraPivot/SubViewportContainer/SubViewport/SmoothCamera/InteractionLine
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	#controller shite
+	Input.joy_connection_changed.connect(update_interaction_text)
 	
 	set_defautl_control()
 
@@ -114,3 +118,14 @@ func set_night_mode(b:bool) -> void:
 
 func play_dimension_switch() -> void:
 	audio_dimension_switch.play(0)
+	
+func update_interaction_text(device:int, connected:bool):
+	var text_ref:String = "Press E"
+	if device == 0 && !connected:
+		is_on_controller = false
+	else:
+		is_on_controller = true
+	if is_on_controller:
+		text_ref = "Press X"
+	$CanvasLayer/InteractionText.text = text_ref
+	pass
