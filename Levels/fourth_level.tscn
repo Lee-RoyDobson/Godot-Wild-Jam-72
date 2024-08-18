@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dki71yuplaeg0"]
+[gd_scene load_steps=22 format=3 uid="uid://dki71yuplaeg0"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_aloa2"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_73qn2"]
@@ -6,6 +6,11 @@
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_2ta40"]
 [ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="5_2uvbd"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="6_ns04l"]
+[ext_resource type="PackedScene" uid="uid://rgapqvwxr7vl" path="res://Scenes/SetDressing/ominous_door.tscn" id="7_cp18y"]
+[ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="8_01jls"]
+[ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="8_ccwri"]
+[ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="10_yt6ht"]
+[ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="11_si34m"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ojimd"]
 _surfaces = [{
@@ -116,3 +121,75 @@ shape = SubResource("ConvexPolygonShape3D_tmvqj")
 
 [node name="Duck" parent="." instance=ExtResource("6_ns04l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40502, 0)
+
+[node name="Doors" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.969852, 0, 0)
+
+[node name="ominous-door" parent="Doors" instance=ExtResource("7_cp18y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.20527, 0.53125, -1.20878)
+
+[node name="FinishFlag" parent="Doors/ominous-door" instance=ExtResource("8_ccwri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0623466, 4.76837e-07, -0.557212)
+next_level = "res://Levels/fourth_level.tscn"
+
+[node name="Exit Pedastal" parent="Doors/ominous-door/FinishFlag" index="1"]
+visible = false
+
+[node name="ominous-door2" parent="Doors" instance=ExtResource("7_cp18y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238928, 0.53125, -7.20527)
+
+[node name="FinishFlag2" parent="Doors/ominous-door2" instance=ExtResource("8_ccwri")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.146625, 4.76837e-07, -0.361718)
+next_level = "res://Levels/fourth_level.tscn"
+
+[node name="Exit Pedastal" parent="Doors/ominous-door2/FinishFlag2" index="1"]
+visible = false
+
+[node name="ominous-door3" parent="Doors" instance=ExtResource("7_cp18y")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.68713, 0.53125, -0.730923)
+
+[node name="FinishFlag3" parent="Doors/ominous-door3" instance=ExtResource("8_ccwri")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0637125, 4.76837e-07, -0.429326)
+next_level = "res://Levels/fourth_level.tscn"
+
+[node name="Exit Pedastal" parent="Doors/ominous-door3/FinishFlag3" index="1"]
+visible = false
+
+[node name="ominous-door4" parent="Doors" instance=ExtResource("7_cp18y")]
+transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, 0.238928, 0.53125, 5.04125)
+
+[node name="FinishFlag4" parent="Doors/ominous-door4" instance=ExtResource("8_ccwri")]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 0.0679642, 4.76837e-07, -0.429441)
+next_level = "res://Levels/fourth_level.tscn"
+
+[node name="Exit Pedastal" parent="Doors/ominous-door4/FinishFlag4" index="1"]
+visible = false
+
+[node name="Lamps" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.969852, 0, 0)
+
+[node name="CatLamp" parent="Lamps" instance=ExtResource("8_01jls")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.28455, 4.74752, -1.07814)
+
+[node name="CatLamp2" parent="Lamps" instance=ExtResource("8_01jls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10829, 4.74752, -6.28455)
+
+[node name="CatLamp3" parent="Lamps" instance=ExtResource("8_01jls")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.7664, 4.74752, -0.861562)
+
+[node name="CatLamp4" parent="Lamps" instance=ExtResource("8_01jls")]
+transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, 0.10829, 4.74752, 4.12052)
+
+[node name="DimensionMachine" parent="." instance=ExtResource("10_yt6ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50802, 0.536799, -7.23291)
+
+[node name="LightObject" parent="DimensionMachine" instance=ExtResource("11_si34m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.626092)
+
+[node name="DimensionMachine2" parent="." instance=ExtResource("10_yt6ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41155, 0.536799, 4.20246)
+
+[editable path="Doors/ominous-door/FinishFlag"]
+[editable path="Doors/ominous-door2/FinishFlag2"]
+[editable path="Doors/ominous-door3/FinishFlag3"]
+[editable path="Doors/ominous-door4/FinishFlag4"]
