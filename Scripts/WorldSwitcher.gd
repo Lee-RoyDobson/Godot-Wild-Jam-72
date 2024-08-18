@@ -3,6 +3,8 @@ extends Node
 ## Only change this if you want a level to start in the dark world
 @export var b_is_light: bool = true
 
+
+
 # List of light only objects
 var light_only_objects = []
 
