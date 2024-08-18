@@ -1,6 +1,4 @@
-
 [gd_scene load_steps=87 format=3 uid="uid://bg25dhohq4sao"]
-
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
 [ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_qg5fn"]
