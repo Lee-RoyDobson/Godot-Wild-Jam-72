@@ -3,6 +3,8 @@ extends Node
 ## Only change this if you want a level to start in the dark world
 @export var b_is_light: bool = true
 
+
+
 # List of light only objects
 var light_only_objects = []
 
@@ -65,11 +67,13 @@ func _process_inputs():
 func switch_to_light() -> void:
 	b_is_light = true
 	_switch_world(b_is_light)
+	AmbientSound.play_light()
 	
 
 func switch_to_dark() -> void:
 	b_is_light = false
-	_switch_world(b_is_light)	
+	_switch_world(b_is_light)
+	AmbientSound.play_dark()
 	
 
 func _switch_world(b_switch_to_light: bool) -> void:
