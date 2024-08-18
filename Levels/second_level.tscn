@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bg25dhohq4sao"]
+[gd_scene load_steps=84 format=3 uid="uid://bg25dhohq4sao"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_sbf80"]
@@ -14,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="10_3vsgj"]
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="10_qpesi"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_xw0rc"]
+[ext_resource type="PackedScene" uid="uid://doutw6sdcgvne" path="res://Scenes/EditorMarkers/light_marker.tscn" id="16_hs1aq"]
+[ext_resource type="PackedScene" uid="uid://bul7h0qgyco8i" path="res://Scenes/Sock and buskin/sock_and_buskin_happy.tscn" id="17_5c8u3"]
+[ext_resource type="PackedScene" uid="uid://o3pqqw3qnljy" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
+[ext_resource type="PackedScene" uid="uid://dxwnlbysweg81" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qxmqq"]
 _surfaces = [{
@@ -551,3 +555,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23477, 0, 1.47293)
 [node name="FinishFlag" parent="." instance=ExtResource("14_xw0rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26934, -0.167696, -13.1748)
 next_level = "res://Levels/third_level.tscn"
+
+[node name="sock and buskin happy" parent="." instance=ExtResource("17_5c8u3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.57498, 0.497738, -9.73036)
+
+[node name="Skeleton3D" parent="sock and buskin happy/Armature" index="0"]
+bones/0/position = Vector3(0, -0.0380806, 0)
+bones/4/rotation = Quaternion(-0.121026, -0.0387986, -0.636061, 0.7611)
+bones/5/rotation = Quaternion(-0.101965, -0.679443, -0.111776, 0.71796)
+bones/20/rotation = Quaternion(-0.121026, 0.0387986, 0.636061, 0.7611)
+bones/21/rotation = Quaternion(-0.069991, 0.620568, 0.104763, 0.773965)
+bones/22/rotation = Quaternion(0.0462172, 0.000571789, -0.00882755, 0.998892)
+
+[node name="LightObject" parent="sock and buskin happy" instance=ExtResource("10_3vsgj")]
+
+[node name="LightMarker" parent="sock and buskin happy" instance=ExtResource("16_hs1aq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.29603, 0)
+
+[node name="UiOverlayGameplayDark" parent="." instance=ExtResource("17_v8h00")]
+visible = false
+
+[node name="DarkObject" parent="UiOverlayGameplayDark" instance=ExtResource("10_qpesi")]
+
+[node name="UiOverlayGameplayLight" parent="." instance=ExtResource("18_l0e1l")]
+
+[node name="LightObject" parent="UiOverlayGameplayLight" instance=ExtResource("10_3vsgj")]
+
+[editable path="sock and buskin happy"]

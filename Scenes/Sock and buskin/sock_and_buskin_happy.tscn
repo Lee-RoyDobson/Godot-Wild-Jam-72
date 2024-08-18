@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bul7h0qgyco8i"]
+
+[ext_resource type="PackedScene" uid="uid://iliyrl3fhi36" path="res://Models/Sock and buskins/Sock and buskin happy/sock and buskin happy.glb" id="1_h1bm6"]
+[ext_resource type="Script" path="res://Scripts/sock and buskin happy.gd" id="2_hjdpn"]
+
+[node name="sock and buskin happy" instance=ExtResource("1_h1bm6")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("2_hjdpn")
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/3/rotation = Quaternion(0.0230941, -0.0497122, -0.644326, 0.762784)
+bones/4/rotation = Quaternion(-0.121483, -0.0388982, -0.642036, 0.755989)
+bones/5/rotation = Quaternion(0.000996203, 0.177695, 0.116798, 0.977129)
+bones/8/rotation = Quaternion(-0.0780519, -1.18846e-07, -9.30451e-09, 0.996949)
+bones/10/rotation = Quaternion(0.0668869, 0.228788, -0.0580768, 0.969438)
+bones/11/rotation = Quaternion(-0.271793, -0.0149996, -0.283696, 0.919467)
+bones/12/rotation = Quaternion(-0.133467, -0.0461153, -0.0403686, 0.989156)
+bones/13/rotation = Quaternion(-0.114592, 0.0112837, -0.177762, 0.977314)
+bones/16/rotation = Quaternion(-0.271793, 0.0149996, 0.283696, 0.919467)
+bones/18/rotation = Quaternion(-0.114592, -0.0112837, 0.177762, 0.977314)
+bones/19/rotation = Quaternion(0.0230941, 0.0497122, 0.644326, 0.762784)
+bones/20/rotation = Quaternion(-0.146832, 0.570869, 0.084737, 0.803348)
+bones/21/rotation = Quaternion(0.0142634, -0.650199, -0.0113821, 0.759545)
+bones/22/rotation = Quaternion(0.00586859, 0.675153, 0.0347592, 0.736835)
+bones/23/rotation = Quaternion(0.923857, 0.0882436, 0.371833, -0.0210086)
+bones/24/rotation = Quaternion(-0.0710819, 0.419606, 0.043872, 0.903855)
+bones/25/rotation = Quaternion(0.923857, -0.0882436, -0.371833, -0.0210086)
+bones/26/rotation = Quaternion(-0.0710819, -0.419606, -0.043872, 0.903855)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
