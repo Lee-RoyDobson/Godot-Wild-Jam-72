@@ -125,5 +125,5 @@ material = SubResource("ShaderMaterial_dtlhr")
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="8"]
+[node name="DimensionSwitch" type="AudioStreamPlayer" parent="." index="8"]
 stream = ExtResource("8_pnjyp")

@@ -56,6 +56,12 @@ func _physics_process(delta):
 			var tt:Interact_Node = Collider.get_parent() as Interact_Node
 			if(tt != null):
 				tt.Interact()
+				
+	var interaction_vis:bool = false
+	if Ray_interact.is_colliding(): 
+		if Ray_interact.get_collider().get_parent() as Interact_Node:
+			interaction_vis = true 
+	$CanvasLayer/InteractionText.visible = interaction_vis
 
 	# Handle jump.
 	if Input.is_action_just_pressed("action_jump") and is_on_floor():
