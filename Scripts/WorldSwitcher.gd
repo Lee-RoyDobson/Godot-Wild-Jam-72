@@ -67,11 +67,13 @@ func _process_inputs():
 func switch_to_light() -> void:
 	b_is_light = true
 	_switch_world(b_is_light)
+	AmbientSound.play_light()
 	
 
 func switch_to_dark() -> void:
 	b_is_light = false
-	_switch_world(b_is_light)	
+	_switch_world(b_is_light)
+	AmbientSound.play_dark()
 	
 
 func _switch_world(b_switch_to_light: bool) -> void:

@@ -89,3 +89,4 @@ offset_bottom = 648.0
 
 [node name="DimensionSwitch" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource("7_fxpv2")
+volume_db = -12.0
