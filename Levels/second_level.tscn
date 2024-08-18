@@ -1,6 +1,7 @@
-[gd_scene load_steps=79 format=3 uid="uid://bg25dhohq4sao"]
+[gd_scene load_steps=82 format=3 uid="uid://bg25dhohq4sao"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
+[ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_qg5fn"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_sbf80"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="4_22dn2"]
 [ext_resource type="Material" uid="uid://b1rw4f48fpjkg" path="res://textures/Floor.tres" id="4_tl6nr"]
@@ -13,6 +14,8 @@
 [ext_resource type="Material" uid="uid://isesel8wh60u" path="res://textures/MegaBrickTexture1.tres" id="9_pqcs0"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="10_3vsgj"]
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="10_qpesi"]
+[ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="12_0w63o"]
+[ext_resource type="PackedScene" uid="uid://dmsr7ifw8p0kw" path="res://Scenes/SetDressing/lamp.tscn" id="13_okedg"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_xw0rc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qnni2"]
@@ -307,6 +310,8 @@ points = PackedVector3Array(2.875, 0, 0, 2.875, 0.03125, 0, 0, 0.03125, 0, 0, 0,
 
 [node name="second_level" type="Node3D"]
 
+[node name="LightAndEnvironment" parent="." instance=ExtResource("1_qg5fn")]
+
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("1_20uba")
 local_map_file = "res://LevelModelFiles/SecondLevel/SecondLevel.map"
@@ -502,8 +507,22 @@ shape = SubResource("ConvexPolygonShape3D_vy7oe")
 transform = Transform3D(-1, 0, 0.000384005, 0, 1, 0, -0.000384005, 0, -1, 1.30954, 6.1185, 2.06186)
 player_controls_switch = true
 
+[node name="CatLamp" parent="." instance=ExtResource("12_0w63o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2576, 6.83711, -1.2655)
+
+[node name="CatLamp2" parent="." instance=ExtResource("12_0w63o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2576, 6.83711, -8.68685)
+
+[node name="lamp" parent="." instance=ExtResource("13_okedg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2576, 6.83711, -4.96754)
+
+[node name="SpotLight3D" parent="lamp" index="1"]
+light_energy = 0.2
+spot_angle = 30.0
+
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.2576, 6.83711, -1.2655)
+visible = false
 light_energy = 3.93
 light_indirect_energy = 1.789
 spot_range = 58.187
@@ -511,6 +530,7 @@ spot_angle = 31.06
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.2576, 6.83711, -8.68685)
+visible = false
 light_energy = 3.93
 light_indirect_energy = 1.789
 spot_range = 58.187
@@ -544,3 +564,5 @@ shape = SubResource("ConvexPolygonShape3D_hyk3f")
 [node name="FinishFlag" parent="." instance=ExtResource("14_xw0rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26934, -0.167696, -13.1748)
 next_level = "res://Levels/third_level.tscn"
+
+[editable path="lamp"]

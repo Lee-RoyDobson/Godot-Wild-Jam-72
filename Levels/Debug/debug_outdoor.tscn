@@ -1,9 +1,6 @@
-[gd_scene load_steps=221 format=3 uid="uid://coad2wneoi44r"]
+[gd_scene load_steps=214 format=3 uid="uid://coad2wneoi44r"]
 
-[ext_resource type="Environment" uid="uid://bapdevni80imc" path="res://Resources/Enviroments/RefinedEnviromentHigh.tres" id="1_1pvh2"]
-[ext_resource type="PackedScene" uid="uid://5v0bi5snkrwi" path="res://Scenes/skybox_switcher.tscn" id="2_0jo35"]
-[ext_resource type="Texture2D" uid="uid://dt1dibirokkst" path="res://textures/SkyboxSand.png" id="3_ldohp"]
-[ext_resource type="Texture2D" uid="uid://dkkly40db4hv8" path="res://textures/SkyboxSand2.png" id="4_q2b42"]
+[ext_resource type="PackedScene" uid="uid://cfkx3ws42poak" path="res://Scenes/LightAndEnvironmentOutdoor.tscn" id="1_x6xsc"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="5_vvgry"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="6_wwpku"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="7_mjkrk"]
@@ -21,18 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://y8lek848pkmk" path="res://Scenes/SetDressing/Cats/cat_demo.tscn" id="19_absao"]
 [ext_resource type="PackedScene" uid="uid://baqvxtaoe4muo" path="res://Scenes/SetDressing/Cats/mirror.tscn" id="20_wfi4e"]
 [ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="21_5m4c3"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_32vtk"]
-sky_cover = ExtResource("3_ldohp")
-
-[sub_resource type="Sky" id="Sky_qwlxn"]
-sky_material = SubResource("ProceduralSkyMaterial_32vtk")
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wdfvy"]
-sky_cover = ExtResource("4_q2b42")
-
-[sub_resource type="Sky" id="Sky_iuyuj"]
-sky_material = SubResource("ProceduralSkyMaterial_wdfvy")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_l6n8k"]
 _surfaces = [{
@@ -710,24 +695,7 @@ point_count = 2
 
 [node name="Debug_Outdoor_Level" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_1pvh2")
-
-[node name="SkyboxSwitcher" parent="." node_paths=PackedStringArray("day_light", "night_light") instance=ExtResource("2_0jo35")]
-day_sky = SubResource("Sky_qwlxn")
-night_sky = SubResource("Sky_iuyuj")
-day_light = NodePath("../DirectionalDayLight")
-night_light = NodePath("../DirectionalNightLight")
-
-[node name="DirectionalDayLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
-
-[node name="DirectionalNightLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.967709, 0.0437714, -0.24824, 0, 0.984807, 0.173648, 0.252069, -0.168041, 0.953008, 0, 0, 0)
-visible = false
-light_color = Color(0.906362, 0.622096, 0.42534, 1)
-shadow_enabled = true
+[node name="LightAndEnvironment" parent="." instance=ExtResource("1_x6xsc")]
 
 [node name="Duck" parent="." instance=ExtResource("5_vvgry")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.125)
@@ -1325,6 +1293,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="CaveStuff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+visible = false
 
 [node name="LaserDoor_check" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1.5, 15.1)

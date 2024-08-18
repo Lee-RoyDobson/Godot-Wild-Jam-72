@@ -1,6 +1,7 @@
-[gd_scene load_steps=47 format=3 uid="uid://deg0vq78hnp1o"]
+[gd_scene load_steps=48 format=3 uid="uid://deg0vq78hnp1o"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_3h0nj"]
+[ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_gj2ba"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_l6qpu"]
 [ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="3_be7rq"]
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_jurl1"]
@@ -175,6 +176,8 @@ points = PackedVector3Array(-8, 6.78125, -6.5, -8, 6.28125, -6.5, -4, 6.28125, -
 points = PackedVector3Array(-24.5, 6.78125, -6.5, -24.5, 6.28125, -6.5, -8, 6.28125, -6.5, -8, 6.78125, -6.5, -24.5, 6.78125, -2.5, -24.5, 6.28125, -2.5, -8, 6.28125, -2.5, -8, 6.78125, -2.5)
 
 [node name="FirstLevel" type="Node3D"]
+
+[node name="LightAndEnvironment" parent="." instance=ExtResource("1_gj2ba")]
 
 [node name="FinishFlag" parent="." instance=ExtResource("8_efl8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.05785, 4.05927, 13.0031)
