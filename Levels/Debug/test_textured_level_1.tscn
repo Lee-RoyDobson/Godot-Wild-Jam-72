@@ -1,5 +1,6 @@
-[gd_scene load_steps=68 format=3 uid="uid://cd8l2lpn5q48i"]
+[gd_scene load_steps=66 format=3 uid="uid://cd8l2lpn5q48i"]
 
+[ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_by3pe"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="1_lccaw"]
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="2_w7a0o"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="3_clvwo"]
@@ -13,19 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ctj17t7qcbvhx" path="res://Scenes/Mechanics/Interactables/TimerPropNode1a.tscn" id="11_jsokk"]
 [ext_resource type="PackedScene" uid="uid://btjv84hes434d" path="res://Scenes/Mechanics/laser_door_base.tscn" id="12_6p8u4"]
 [ext_resource type="PackedScene" uid="uid://muec5pc5rroc" path="res://Scenes/Mechanics/Interactables/SwitchPropNode1a.tscn" id="13_v4fwp"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7s0rl"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_54pkw"]
-sky_material = SubResource("ProceduralSkyMaterial_7s0rl")
-
-[sub_resource type="Environment" id="Environment_ugplv"]
-background_mode = 2
-sky = SubResource("Sky_54pkw")
-tonemap_mode = 2
-glow_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kkkkc"]
 _surfaces = [{
@@ -259,15 +247,11 @@ point_count = 4
 
 [node name="TestTexturedLevel" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ugplv")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+[node name="LightAndEnvironment" parent="." instance=ExtResource("1_by3pe")]
 
 [node name="Duck" parent="." instance=ExtResource("1_lccaw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.125)
+player_controls_switch = true
 
 [node name="FuncGodotMap" type="Node3D" parent="."]
 script = ExtResource("2_w7a0o")
