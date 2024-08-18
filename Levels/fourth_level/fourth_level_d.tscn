@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4wfgti1pgrdn"]
+
+[ext_resource type="PackedScene" uid="uid://dki71yuplaeg0" path="res://Levels/fourth_level/fourth_level_template.tscn" id="1_ne1p3"]
+
+[node name="FourthLevel" instance=ExtResource("1_ne1p3")]
+
+[node name="FinishFlag4" parent="Doors/ominous-door4" index="2"]
+next_level = "res://UI/UI_MainMenu.tscn"
+
+[editable path="Doors/ominous-door/FinishFlag"]
+[editable path="Doors/ominous-door2/FinishFlag2"]
+[editable path="Doors/ominous-door3/FinishFlag3"]
+[editable path="Doors/ominous-door4/FinishFlag4"]

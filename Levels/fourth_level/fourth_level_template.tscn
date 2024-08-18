@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dki71yuplaeg0"]
+[gd_scene load_steps=25 format=3 uid="uid://dki71yuplaeg0"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_aloa2"]
 [ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_w4i3e"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="10_yt6ht"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="11_si34m"]
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="12_kxggg"]
+[ext_resource type="ArrayMesh" uid="uid://6vtppptemuw7" path="res://Blender files/Barrel/barrel_Cylinder.res" id="14_ryd5y"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ojimd"]
 _surfaces = [{
@@ -124,7 +125,7 @@ shape = SubResource("ConvexPolygonShape3D_wo00f")
 shape = SubResource("ConvexPolygonShape3D_tmvqj")
 
 [node name="Duck" parent="." instance=ExtResource("6_ns04l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40502, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40502, -4.64667)
 
 [node name="Doors" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.969852, 0, 0)
@@ -134,7 +135,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.2052
 
 [node name="FinishFlag" parent="Doors/ominous-door" instance=ExtResource("8_ccwri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0623466, 4.76837e-07, -0.557212)
-next_level = "res://Levels/fourth_level.tscn"
+next_level = "res://Levels/fourth_level/fourth_level_a.tscn"
 
 [node name="Exit Pedastal" parent="Doors/ominous-door/FinishFlag" index="1"]
 visible = false
@@ -144,7 +145,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238928, 0.53125, -7.20527)
 
 [node name="FinishFlag2" parent="Doors/ominous-door2" instance=ExtResource("8_ccwri")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.146625, 4.76837e-07, -0.361718)
-next_level = "res://Levels/fourth_level.tscn"
+next_level = "res://Levels/fourth_level/fourth_level_a.tscn"
 
 [node name="Exit Pedastal" parent="Doors/ominous-door2/FinishFlag2" index="1"]
 visible = false
@@ -154,7 +155,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.687
 
 [node name="FinishFlag3" parent="Doors/ominous-door3" instance=ExtResource("8_ccwri")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0637125, 4.76837e-07, -0.429326)
-next_level = "res://Levels/fourth_level.tscn"
+next_level = "res://Levels/fourth_level/fourth_level_a.tscn"
 
 [node name="Exit Pedastal" parent="Doors/ominous-door3/FinishFlag3" index="1"]
 visible = false
@@ -164,7 +165,7 @@ transform = Transform3D(-1, 0, 3.17865e-08, 0, 1, 0, -3.17865e-08, 0, -1, 0.2389
 
 [node name="FinishFlag4" parent="Doors/ominous-door4" instance=ExtResource("8_ccwri")]
 transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 0.0679642, 4.76837e-07, -0.429441)
-next_level = "res://Levels/fourth_level.tscn"
+next_level = "res://Levels/fourth_level/fourth_level_a.tscn"
 
 [node name="Exit Pedastal" parent="Doors/ominous-door4/FinishFlag4" index="1"]
 visible = false
@@ -194,6 +195,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.626092)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41155, 0.536799, 4.20246)
 
 [node name="DarkObject" parent="DimensionMachine2" instance=ExtResource("12_kxggg")]
+
+[node name="BarrelCylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -5.91912, 0.53125, 2.2004)
+mesh = ExtResource("14_ryd5y")
 
 [editable path="Doors/ominous-door/FinishFlag"]
 [editable path="Doors/ominous-door2/FinishFlag2"]
