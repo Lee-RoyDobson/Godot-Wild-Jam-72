@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="6_dmx1h"]
 [ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="6_n0i5q"]
 [ext_resource type="Material" uid="uid://bxdcujbv80ssr" path="res://textures/FoamTest.tres" id="7_8tb3x"]
-[ext_resource type="Material" uid="uid://b6rhr0lj1d6r3" path="res://textures/RockTexture1.tres" id="8_p1j5b"]
+[ext_resource type="Material" path="res://textures/RockTexture1.tres" id="8_p1j5b"]
 [ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="9_61m00"]
 [ext_resource type="Material" uid="uid://isesel8wh60u" path="res://textures/MegaBrickTexture1.tres" id="9_pqcs0"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="10_3vsgj"]
@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_xw0rc"]
 [ext_resource type="PackedScene" uid="uid://doutw6sdcgvne" path="res://Scenes/EditorMarkers/light_marker.tscn" id="16_hs1aq"]
 [ext_resource type="PackedScene" uid="uid://bul7h0qgyco8i" path="res://Scenes/Sock and buskin/sock_and_buskin_happy.tscn" id="17_5c8u3"]
-[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
-[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
+[ext_resource type="PackedScene" uid="uid://o3pqqw3qnljy" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
+[ext_resource type="PackedScene" uid="uid://dxwnlbysweg81" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qxmqq"]
 _surfaces = [{
