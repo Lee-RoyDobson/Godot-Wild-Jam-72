@@ -506,7 +506,6 @@ shape = SubResource("ConvexPolygonShape3D_5ps80")
 
 [node name="Duck" parent="." instance=ExtResource("4_22dn2")]
 transform = Transform3D(-1, 0, 0.000384005, 0, 1, 0, -0.000384005, 0, -1, 1.30954, 6.1185, 2.06186)
-player_controls_switch = true
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.2576, 6.83711, -1.2655)
@@ -526,6 +525,7 @@ spot_angle = 31.06
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875056, -3.67058, -8.82474)
 
 [node name="LightObject" parent="DimensionMachine" instance=ExtResource("10_3vsgj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.626092)
 
 [node name="WoodenPlank" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00951812, 0.466725, -8.9114)
@@ -546,6 +546,7 @@ occluder = SubResource("ArrayOccluder3D_cri3a")
 shape = SubResource("ConvexPolygonShape3D_hyk3f")
 
 [node name="DarkObject" parent="WoodenPlank" instance=ExtResource("10_qpesi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23477, 0, 1.47293)
 
 [node name="FinishFlag" parent="." instance=ExtResource("14_xw0rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26934, -0.167696, -13.1748)
