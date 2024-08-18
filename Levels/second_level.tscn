@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="6_dmx1h"]
 [ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="6_n0i5q"]
 [ext_resource type="Material" uid="uid://bxdcujbv80ssr" path="res://textures/FoamTest.tres" id="7_8tb3x"]
-[ext_resource type="Material" path="res://textures/RockTexture1.tres" id="8_p1j5b"]
+[ext_resource type="Material" uid="uid://b6rhr0lj1d6r3" path="res://textures/RockTexture1.tres" id="8_p1j5b"]
 [ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="9_61m00"]
 [ext_resource type="Material" uid="uid://isesel8wh60u" path="res://textures/MegaBrickTexture1.tres" id="9_pqcs0"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="10_3vsgj"]

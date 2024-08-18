@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dki71yuplaeg0"]
+[gd_scene load_steps=33 format=3 uid="uid://dki71yuplaeg0"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_aloa2"]
 [ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_w4i3e"]
@@ -7,13 +7,20 @@
 [ext_resource type="Material" uid="uid://bpdxhankkvoji" path="res://textures/MegaBrickTexture2.tres" id="4_2ta40"]
 [ext_resource type="Material" uid="uid://bpw6xt2seffea" path="res://textures/WallConc1.tres" id="5_2uvbd"]
 [ext_resource type="PackedScene" uid="uid://cwaav8bgsdntq" path="res://Scenes/duck.tscn" id="6_ns04l"]
-[ext_resource type="PackedScene" uid="uid://rgapqvwxr7vl" path="res://Scenes/SetDressing/ominous_door.tscn" id="7_cp18y"]
+[ext_resource type="PackedScene" path="res://Scenes/SetDressing/ominous_door.tscn" id="7_cp18y"]
 [ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="8_01jls"]
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="8_ccwri"]
 [ext_resource type="PackedScene" uid="uid://dpjtvghse7l1w" path="res://Scenes/World Control/dimension_machine.tscn" id="10_yt6ht"]
 [ext_resource type="PackedScene" uid="uid://bwiaq2m681aun" path="res://Scenes/World Control/light_object.tscn" id="11_si34m"]
 [ext_resource type="PackedScene" uid="uid://dcbm78u2katsa" path="res://Scenes/World Control/dark_object.tscn" id="12_kxggg"]
-[ext_resource type="ArrayMesh" uid="uid://6vtppptemuw7" path="res://Blender files/Barrel/barrel_Cylinder.res" id="14_ryd5y"]
+[ext_resource type="PackedScene" uid="uid://ojkh4xshbgcb" path="res://Scenes/SetDressing/barrel.tscn" id="14_5kwi4"]
+[ext_resource type="PackedScene" uid="uid://ih032jlxo5fl" path="res://Scenes/SetDressing/plant_pot.tscn" id="15_xhksk"]
+[ext_resource type="PackedScene" uid="uid://dmsr7ifw8p0kw" path="res://Scenes/SetDressing/lamp.tscn" id="16_auph5"]
+[ext_resource type="PackedScene" uid="uid://d216o2ao1f4g8" path="res://Models/ComputerDesk/computerdesk.gltf" id="17_37c8c"]
+[ext_resource type="PackedScene" uid="uid://dva8bq65aa70r" path="res://Scenes/SetDressing/plant_pot_with_rb.tscn" id="18_8b4at"]
+[ext_resource type="Texture2D" uid="uid://dg7v0p043rrpq" path="res://Blender files/PlantPot/PotTexture-BrokenStatic.png" id="19_3icu4"]
+[ext_resource type="ArrayMesh" uid="uid://bunf3diqhr64r" path="res://Blender files/PlantPot/PlantPots_Mesh_001.res" id="20_8gqo3"]
+[ext_resource type="PackedScene" uid="uid://cndxrwldopa8f" path="res://Scenes/invisible_wall.tscn" id="21_3pc5k"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ojimd"]
 _surfaces = [{
@@ -82,6 +89,9 @@ points = PackedVector3Array(-6.40625, 5.03125, -0.218746, -6.40625, 4.75, 5.7812
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tmvqj"]
 points = PackedVector3Array(-6.4375, 5.0625, -1.3125, -6.4375, 5.03125, -1.3125, 6.125, 5.03125, -1.3125, 6.125, 5.0625, -1.3125, -6.4375, 5.0625, -0.21875, -6.4375, 5.03125, -0.21875, 6.125, 5.03125, -0.21875, 6.125, 5.0625, -0.21875)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeii1"]
+albedo_texture = ExtResource("19_3icu4")
+
 [node name="FourthLevel" type="Node3D"]
 
 [node name="LightAndEnvironment" parent="." instance=ExtResource("1_w4i3e")]
@@ -144,7 +154,7 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238928, 0.53125, -7.20527)
 
 [node name="FinishFlag2" parent="Doors/ominous-door2" instance=ExtResource("8_ccwri")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.146625, 4.76837e-07, -0.361718)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0831923, 4.76837e-07, -0.641088)
 next_level = "res://Levels/fourth_level/fourth_level_a.tscn"
 
 [node name="Exit Pedastal" parent="Doors/ominous-door2/FinishFlag2" index="1"]
@@ -196,11 +206,2144 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.41155, 0.536799, 4.20246)
 
 [node name="DarkObject" parent="DimensionMachine2" instance=ExtResource("12_kxggg")]
 
-[node name="BarrelCylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -5.91912, 0.53125, 2.2004)
-mesh = ExtResource("14_ryd5y")
+[node name="Barrels" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80537, 1.43155, 4.03345)
+
+[node name="Barrel" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118069, -0.900305, -1.59997)
+
+[node name="Barrel2" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.844244, -0.900305, -1.41672)
+
+[node name="Barrel3" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.78732, -0.900305, -1.31726)
+
+[node name="Barrel4" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.72758, -0.900305, -1.46797)
+
+[node name="Barrel5" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2899, -0.900305, 0.385399)
+
+[node name="Barrel6" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.73979, -0.900305, 1.2327)
+
+[node name="Barrel8" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.51488, -0.900305, 0.703824)
+
+[node name="DarkObject" parent="Barrels/Barrel8" instance=ExtResource("12_kxggg")]
+
+[node name="Barrel10" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66428, -0.900305, 1.17465)
+
+[node name="DarkObject" parent="Barrels/Barrel10" instance=ExtResource("12_kxggg")]
+
+[node name="Barrel9" parent="Barrels" instance=ExtResource("14_5kwi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64371, -0.900305, 1.23466)
+
+[node name="DarkObject" parent="Barrels/Barrel9" instance=ExtResource("12_kxggg")]
+
+[node name="PlantPot" parent="Barrels" instance=ExtResource("15_xhksk")]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0.343597, -0.644607, 0.157682)
+
+[node name="lamp" parent="Barrels" instance=ExtResource("16_auph5")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 3.84132, -0.00674629, 0.349661)
+
+[node name="SpotLight3D" parent="Barrels/lamp" index="1"]
+spot_angle = 20.0
+
+[node name="CatLamp" parent="Barrels" instance=ExtResource("8_01jls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.326553, 3.23372, 0.197524)
+
+[node name="SpotLight3D" parent="Barrels/CatLamp/LightLamp" index="1"]
+spot_angle = 10.0
+
+[node name="Desks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.53371, 0.53125, 3.93601)
+
+[node name="blockbench_export" parent="Desks" instance=ExtResource("17_37c8c")]
+
+[node name="LightObject" parent="Desks/blockbench_export" instance=ExtResource("11_si34m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.91414e-05, 0.00274825, 0.00265265)
+
+[node name="blockbench_export2" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22488, 0, -0.0349569)
+
+[node name="blockbench_export13" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(-0.0293697, 0, 0.999569, 0, 1, 0, -0.999569, 0, -0.0293697, -1.24952, 0, 0.758179)
+
+[node name="LightObject" parent="Desks/blockbench_export13" instance=ExtResource("11_si34m")]
+
+[node name="blockbench_export3" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.39233, 0, 0.0129943)
+
+[node name="blockbench_export4" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.54461, 0, 0.0430484)
+
+[node name="blockbench_export5" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00520277, 0, -2.78967)
+
+[node name="blockbench_export6" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.25663, 0, -2.76955)
+
+[node name="blockbench_export7" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37003, 0, -2.80158)
+
+[node name="blockbench_export8" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.63591, 0, -2.7761)
+
+[node name="blockbench_export9" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(-0.999992, 0, -0.00406661, 0, 1, 0, 0.00406661, 0, -0.999992, -3.62496, 0, -2.38282)
+
+[node name="blockbench_export10" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(-0.999992, 0, -0.00406661, 0, 1, 0, 0.00406661, 0, -0.999992, -2.3496, 0, -2.43302)
+
+[node name="blockbench_export11" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(-0.999992, 0, -0.00406661, 0, 1, 0, 0.00406661, 0, -0.999992, -1.21559, 0, -2.39201)
+
+[node name="blockbench_export12" parent="Desks" instance=ExtResource("17_37c8c")]
+transform = Transform3D(-0.999992, 0, -0.00406661, 0, 1, 0, 0.00406661, 0, -0.999992, -0.031137, 0, -2.43915)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87826, 0.53125, -5.83256)
+
+[node name="Stack" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54279, 0, -0.0573478)
+
+[node name="Plant Pot" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack2" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.54279, 0, -0.473706)
+
+[node name="Plant Pot" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack2" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack3" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -1.54279, 0, -0.983484)
+
+[node name="Plant Pot" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack3" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack4" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04854, 0, -0.0394068)
+
+[node name="Plant Pot" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack4" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack5" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04854, 0, -0.513113)
+
+[node name="Plant Pot" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack5" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack6" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -1.04854, 0, -1.02289)
+
+[node name="Plant Pot" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack6" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack7" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662422, 0, -0.0562987)
+
+[node name="Plant Pot" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack7" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack8" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.662422, 0, -0.481318)
+
+[node name="Plant Pot" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack8" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack9" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -0.662422, 0, -0.991096)
+
+[node name="Plant Pot" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack9" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack10" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216277, 0, -0.165988)
+
+[node name="Plant Pot" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack10" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack11" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216277, 0, -0.639695)
+
+[node name="Plant Pot" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack11" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack12" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -0.216277, 0, -1.14947)
+
+[node name="Plant Pot" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack12" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack13" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097832, 0, -0.0501776)
+
+[node name="Plant Pot" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack13" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack14" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097832, 0, -0.392127)
+
+[node name="Plant Pot" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack14" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack15" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, 0.097832, 0, -0.901905)
+
+[node name="Plant Pot" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack15" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack16" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54467, 0, -0.112032)
+
+[node name="Plant Pot" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack16" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack17" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54467, 0, -0.585739)
+
+[node name="Plant Pot" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack17" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack18" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, 0.54467, 0, -1.09552)
+
+[node name="Plant Pot" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack18" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack19" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02569, 2.38419e-07, 2.2272)
+
+[node name="Plant Pot" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack19" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack20" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.02569, 2.38419e-07, 1.75349)
+
+[node name="Plant Pot" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack20" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack21" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -3.02569, 2.38419e-07, 1.24371)
+
+[node name="Plant Pot" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack21" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack22" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53144, 2.38419e-07, 2.18779)
+
+[node name="Plant Pot" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack22" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack22" instance=ExtResource("11_si34m")]
+
+[node name="Stack23" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53144, 2.38419e-07, 1.71408)
+
+[node name="Plant Pot" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack23" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack23" instance=ExtResource("11_si34m")]
+
+[node name="Stack24" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -2.53144, 2.38419e-07, 1.2043)
+
+[node name="Plant Pot" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack24" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack24" instance=ExtResource("11_si34m")]
+
+[node name="Stack25" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14532, 2.38419e-07, 2.21958)
+
+[node name="Plant Pot" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack25" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack25" instance=ExtResource("11_si34m")]
+
+[node name="Stack26" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.14532, 2.38419e-07, 1.74588)
+
+[node name="Plant Pot" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack26" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack26" instance=ExtResource("11_si34m")]
+
+[node name="Stack27" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -2.14532, 2.38419e-07, 1.2361)
+
+[node name="Plant Pot" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack27" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack27" instance=ExtResource("11_si34m")]
+
+[node name="Stack28" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69918, 2.38419e-07, 2.06121)
+
+[node name="Plant Pot" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack28" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack29" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69918, 2.38419e-07, 1.5875)
+
+[node name="Plant Pot" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack29" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack73" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.347291, 2.38419e-07, 1.5875)
+
+[node name="Plant Pot" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack73" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack74" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.127708, 2.38419e-07, 2.08554)
+
+[node name="Plant Pot" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack74" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack75" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4584, 2.38419e-07, 2.32929)
+
+[node name="Plant Pot" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack75" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack76" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.964698, 2.38419e-07, 0.146798)
+
+[node name="Plant Pot" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack76" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack30" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -1.69918, 2.38419e-07, 1.07772)
+
+[node name="Plant Pot" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack30" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack30" instance=ExtResource("12_kxggg")]
+
+[node name="Stack31" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38507, 2.38419e-07, 2.30878)
+
+[node name="Plant Pot" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack31" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack32" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38507, 2.38419e-07, 1.83507)
+
+[node name="Plant Pot" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack32" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack33" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -1.38507, 2.38419e-07, 1.43314)
+
+[node name="Plant Pot" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack33" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack34" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93823, 2.38419e-07, 2.11516)
+
+[node name="Plant Pot" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack34" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack35" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93823, 2.38419e-07, 1.64146)
+
+[node name="Plant Pot" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack35" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack36" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.0192672, 0, -0.999814, 0, 1, 0, 0.999814, 0, -0.0192672, -0.93823, 2.38419e-07, 1.13168)
+
+[node name="Plant Pot" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack36" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack36" instance=ExtResource("12_kxggg")]
+
+[node name="Stack37" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -1.65255, 2.38419e-07, 4.83123)
+
+[node name="Plant Pot" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack37" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack38" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -2.12611, 2.38419e-07, 4.81975)
+
+[node name="Plant Pot" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack38" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack39" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.999053, 0, -0.0434973, 0, 1, 0, 0.0434973, 0, 0.999053, -3.27746, 2.38419e-07, 4.92554)
+
+[node name="Plant Pot" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack39" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack40" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -1.67996, 2.38419e-07, 4.33617)
+
+[node name="Plant Pot" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack40" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack41" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -2.15353, 2.38419e-07, 4.32468)
+
+[node name="Plant Pot" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack41" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack42" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.999053, 0, -0.0434973, 0, 1, 0, 0.0434973, 0, 0.999053, -2.66316, 2.38419e-07, 4.31233)
+
+[node name="Plant Pot" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack42" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack43" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -1.63882, 2.38419e-07, 3.95093)
+
+[node name="Plant Pot" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack43" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack44" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -2.11238, 2.38419e-07, 3.93945)
+
+[node name="Plant Pot" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack44" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack45" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.999053, 0, -0.0434973, 0, 1, 0, 0.0434973, 0, 0.999053, -2.62201, 2.38419e-07, 3.92709)
+
+[node name="Plant Pot" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack45" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack46" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -1.78633, 2.38419e-07, 3.50108)
+
+[node name="Plant Pot" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack46" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack47" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -2.2599, 2.38419e-07, 3.4896)
+
+[node name="Plant Pot" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack47" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack48" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.999053, 0, -0.0434973, 0, 1, 0, 0.0434973, 0, 0.999053, -2.76953, 2.38419e-07, 3.47724)
+
+[node name="Plant Pot" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack48" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack49" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -1.53122, 2.38419e-07, 3.19306)
+
+[node name="Plant Pot" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack49" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack50" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -2.00479, 2.38419e-07, 3.18158)
+
+[node name="Plant Pot" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack50" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack51" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.999053, 0, -0.0434973, 0, 1, 0, 0.0434973, 0, 0.999053, -2.51442, 2.38419e-07, 3.16922)
+
+[node name="Plant Pot" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack51" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack52" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -1.71395, 2.38419e-07, 2.74166)
+
+[node name="Plant Pot" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack52" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack53" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.0242402, 0, 0.999706, 0, 1, 0, -0.999706, 0, 0.0242402, -2.18751, 2.38419e-07, 2.73018)
+
+[node name="Plant Pot" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack53" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack54" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.999053, 0, -0.0434973, 0, 1, 0, 0.0434973, 0, 0.999053, -2.69714, 2.38419e-07, 2.71782)
+
+[node name="Plant Pot" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack54" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="LightObject" parent="Node3D/Stack54" instance=ExtResource("11_si34m")]
+
+[node name="Stack55" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.96717, 2.38419e-07, 2.73372)
+
+[node name="Plant Pot" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack55" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack56" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.495839, 2.38419e-07, 2.68635)
+
+[node name="Plant Pot" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack56" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack57" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.996728, 0, -0.0808253, 0, 1, 0, 0.0808253, 0, -0.996728, 0.0113833, 2.38419e-07, 2.63536)
+
+[node name="Plant Pot" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack57" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack58" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.878528, 2.38419e-07, 3.22155)
+
+[node name="Plant Pot" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack58" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack59" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.407197, 2.38419e-07, 3.17418)
+
+[node name="Plant Pot" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack59" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack60" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.996728, 0, -0.0808253, 0, 1, 0, 0.0808253, 0, -0.996728, 0.100025, 2.38419e-07, 3.12319)
+
+[node name="Plant Pot" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack60" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack61" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.871546, 2.38419e-07, 3.60892)
+
+[node name="Plant Pot" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack61" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack62" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.400215, 2.38419e-07, 3.56154)
+
+[node name="Plant Pot" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack62" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack63" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.996728, 0, -0.0808253, 0, 1, 0, 0.0808253, 0, -0.996728, 0.107007, 2.38419e-07, 3.51055)
+
+[node name="Plant Pot" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack63" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack64" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.669343, 2.38419e-07, 4.03698)
+
+[node name="Plant Pot" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack64" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack65" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.198012, 2.38419e-07, 3.98961)
+
+[node name="Plant Pot" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack65" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack66" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.996728, 0, -0.0808253, 0, 1, 0, 0.0808253, 0, -0.996728, 0.30921, 2.38419e-07, 3.93862)
+
+[node name="Plant Pot" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack66" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack67" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.884254, 2.38419e-07, 4.37428)
+
+[node name="Plant Pot" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack67" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack68" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.412923, 2.38419e-07, 4.3269)
+
+[node name="Plant Pot" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack68" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack69" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.996728, 0, -0.0808253, 0, 1, 0, 0.0808253, 0, -0.996728, 0.0942986, 2.38419e-07, 4.27592)
+
+[node name="Plant Pot" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack69" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack70" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.646923, 2.38419e-07, 4.79951)
+
+[node name="Plant Pot" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack70" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack71" type="Node3D" parent="Node3D"]
+transform = Transform3D(0.100015, 0, -0.994986, 0, 1, 0, 0.994986, 0, 0.100015, -0.175591, 2.38419e-07, 4.75214)
+
+[node name="Plant Pot" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack71" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack72" type="Node3D" parent="Node3D"]
+transform = Transform3D(-0.996728, 0, -0.0808253, 0, 1, 0, 0.0808253, 0, -0.996728, 0.331631, 2.38419e-07, 4.70115)
+
+[node name="Plant Pot" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack72" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="Stack Pair" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.652599, 3.57628e-07, 1.0679)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair2" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.335847, 3.57628e-07, 1.48843)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair2"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair2/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair2"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair2/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair3" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.202035, 3.57628e-07, 0.646744)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair3"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair3/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair3"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair3/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair4" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.345877, 3.57628e-07, 1.01882)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair4"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair4/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair4"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair4/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair5" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.924095, 3.57628e-07, 0.532421)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair5"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair5/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair5"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair5/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair6" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74474, 3.57628e-07, 0.522507)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair6"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair6/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair6"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair6/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair7" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6241, 3.57628e-07, 0.521544)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair7"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair7/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair7"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair7/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Stack Pair8" type="Node3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12114, 3.57628e-07, 0.478845)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Stack Pair8"]
+material_override = SubResource("StandardMaterial3D_aeii1")
+mesh = ExtResource("20_8gqo3")
+
+[node name="LightObject" parent="Node3D/Stack Pair8/MeshInstance3D" instance=ExtResource("11_si34m")]
+
+[node name="Stack77" type="Node3D" parent="Node3D/Stack Pair8"]
+
+[node name="Plant Pot" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+
+[node name="Plant Pot2" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999998, -0.00182911, 4.37193e-05, 0.00182911, 0.999998, 1.62912e-05, -4.37501e-05, -1.62083e-05, 1, 0, 0.14948, 0)
+
+[node name="Plant Pot3" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 0.999763, -0.0217625, 0, 0.0217625, 0.999763, 0, 0.304141, 0)
+
+[node name="Plant Pot4" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43185, 0)
+
+[node name="Plant Pot5" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.998218, 0.0591447, 0.00788384, -0.0589878, 0.998081, -0.0188378, -0.00898286, 0.0183392, 0.999791, 0, 0.579461, 0)
+
+[node name="Plant Pot6" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.69622, 0)
+
+[node name="Plant Pot7" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("18_8b4at")]
+transform = Transform3D(0.999059, 0.0433753, 0, -0.0433753, 0.999059, 0, 0, 0, 1, 0, 0.806898, 0)
+
+[node name="DarkObject" parent="Node3D/Stack Pair8/Stack77" instance=ExtResource("12_kxggg")]
+
+[node name="Invisible wall" parent="." instance=ExtResource("21_3pc5k")]
+transform = Transform3D(3.807, 0, 0, 0, 1, 0, 0, 0, 3.62125, -4.14395, 2.40757, -2.87004)
 
 [editable path="Doors/ominous-door/FinishFlag"]
 [editable path="Doors/ominous-door2/FinishFlag2"]
 [editable path="Doors/ominous-door3/FinishFlag3"]
 [editable path="Doors/ominous-door4/FinishFlag4"]
+[editable path="Barrels/lamp"]
+[editable path="Barrels/CatLamp"]
+[editable path="Barrels/CatLamp/LightLamp"]
+[editable path="Barrels/CatLamp/DarkLamp"]
