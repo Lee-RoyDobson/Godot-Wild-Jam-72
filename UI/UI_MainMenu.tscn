@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://xh388bugsnwa"]
+[gd_scene load_steps=3 format=3 uid="uid://xh388bugsnwa"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuControl.gd" id="1_iqksg"]
+[ext_resource type="Texture2D" uid="uid://dcl8fs21rr0n3" path="res://UI/SockAndBussin.png" id="2_hk8qm"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,16 +12,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iqksg")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hk8qm")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -214.5
-offset_top = 115.0
-offset_right = 214.5
-offset_bottom = 211.0
-grow_horizontal = 2
+offset_left = 77.0
+offset_top = 70.0
+offset_right = 506.0
+offset_bottom = 166.0
 theme_override_font_sizes/font_size = 70
 text = "Douceur Kay"
 horizontal_alignment = 1
@@ -28,32 +34,26 @@ vertical_alignment = 1
 
 [node name="Exit Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -84.5
-offset_top = -234.0
-offset_right = 84.5
-offset_bottom = -98.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = 87.0
+offset_right = 233.0
+offset_bottom = 187.0
+grow_vertical = 2
 text = "Exit"
 
 [node name="Start Button" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -84.5
-offset_top = -441.0
-offset_right = 84.5
-offset_bottom = -305.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -50.0
+offset_right = 233.0
+offset_bottom = 50.0
+grow_vertical = 2
 text = "Start
 "
 
