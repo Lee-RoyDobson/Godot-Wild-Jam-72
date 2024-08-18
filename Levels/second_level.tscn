@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=84 format=3 uid="uid://bg25dhohq4sao"]
-
+[gd_scene load_steps=87 format=3 uid="uid://bg25dhohq4sao"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_20uba"]
 [ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_qg5fn"]
@@ -21,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://6s06ce6c5j1x" path="res://Scenes/finish_flag.tscn" id="14_xw0rc"]
 [ext_resource type="PackedScene" uid="uid://doutw6sdcgvne" path="res://Scenes/EditorMarkers/light_marker.tscn" id="16_hs1aq"]
 [ext_resource type="PackedScene" uid="uid://bul7h0qgyco8i" path="res://Scenes/Sock and buskin/sock_and_buskin_happy.tscn" id="17_5c8u3"]
-[ext_resource type="PackedScene" uid="uid://o3pqqw3qnljy" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
-[ext_resource type="PackedScene" uid="uid://dxwnlbysweg81" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
+[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayDark.tscn" id="17_v8h00"]
+[ext_resource type="PackedScene" path="res://UI/UI_OverlayGameplayLight.tscn" id="18_l0e1l"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_qxmqq"]
 _surfaces = [{
@@ -527,10 +525,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2576, 6.83711, -8.68685)
 [node name="lamp" parent="." instance=ExtResource("13_okedg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2576, 6.83711, -4.96754)
 
-[node name="SpotLight3D" parent="lamp" index="1"]
-light_energy = 0.2
-spot_angle = 30.0
-
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 2.2576, 6.83711, -1.2655)
 visible = false
@@ -577,7 +571,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23477, 0, 1.47293)
 [node name="FinishFlag" parent="." instance=ExtResource("14_xw0rc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26934, -0.167696, -13.1748)
 next_level = "res://Levels/third_level.tscn"
-
 
 [node name="sock and buskin happy" parent="." instance=ExtResource("17_5c8u3")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 3.57498, 0.497738, -9.73036)
