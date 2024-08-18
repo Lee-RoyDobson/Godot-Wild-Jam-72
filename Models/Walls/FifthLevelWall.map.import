@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dwy5c6fkxq818"
+path="res://.godot/imported/FifthLevelWall.map-dac850ce48c1111190322058088a9d2f.tres"
+
+[deps]
+
+source_file="res://Models/Walls/FifthLevelWall.map"
+dest_files=["res://.godot/imported/FifthLevelWall.map-dac850ce48c1111190322058088a9d2f.tres"]
+
+[params]
+
