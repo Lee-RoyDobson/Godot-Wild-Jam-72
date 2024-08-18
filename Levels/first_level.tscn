@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=3 uid="uid://deg0vq78hnp1o"]
+[gd_scene load_steps=50 format=3 uid="uid://deg0vq78hnp1o"]
 
 [ext_resource type="Script" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_3h0nj"]
+[ext_resource type="PackedScene" uid="uid://dsthad7g535px" path="res://Scenes/SetDressing/Cats/CatLamp.tscn" id="1_83gle"]
 [ext_resource type="PackedScene" uid="uid://dv871yrmnujbt" path="res://Scenes/LightAndEnvironmentIndoor.tscn" id="1_gj2ba"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_l6qpu"]
 [ext_resource type="Material" uid="uid://boc8ssp1gqu3j" path="res://textures/PlankTexture1.tres" id="3_be7rq"]
@@ -177,6 +178,9 @@ points = PackedVector3Array(-8, 6.78125, -6.5, -8, 6.28125, -6.5, -4, 6.28125, -
 points = PackedVector3Array(-24.5, 6.78125, -6.5, -24.5, 6.28125, -6.5, -8, 6.28125, -6.5, -8, 6.78125, -6.5, -24.5, 6.78125, -2.5, -24.5, 6.28125, -2.5, -8, 6.28125, -2.5, -8, 6.78125, -2.5)
 
 [node name="FirstLevel" type="Node3D"]
+
+[node name="CatLamp" parent="." instance=ExtResource("1_83gle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.1519, 6.3067, -1.2655)
 
 [node name="LightAndEnvironment" parent="." instance=ExtResource("1_gj2ba")]
 
@@ -412,5 +416,11 @@ Also, the vents seem to have been damaged during
 one of the tests. Get someone in to fix when possible."
 font_size = 24
 horizontal_alignment = 0
+
+[node name="CatLamp2" parent="." instance=ExtResource("1_83gle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5691, 6.50169, -4.24334)
+
+[node name="CatLamp3" parent="." instance=ExtResource("1_83gle")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.531, 6.39453, 8.42952)
 
 [editable path="FinishFlag"]
